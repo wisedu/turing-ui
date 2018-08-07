@@ -1,4 +1,7 @@
 'use strict'
+/**
+ * 文件用来检测node与npm的版本
+ */
 const chalk = require('chalk')
 const semver = require('semver')
 const packageConfig = require('../package.json')

@@ -3,6 +3,9 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
+const PostCompilePlugin = require('webpack-post-compile-plugin')
+const TransformModulesPlugin = require('webpack-transform-modules-plugin')
+
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -36,11 +39,12 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
+      'cube-ui': 'cube-ui/lib'
     }
   },
   module: {
     rules: [
-      ...(config.dev.useEslint ? [createLintingRule()] : []),
+      //...(config.dev.useEslint ? [createLintingRule()] : []),
       {
         test: /\.vue$/,
         loader: 'vue-loader',
@@ -49,7 +53,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
+        include: [resolve('src'), resolve('node_modules/cube-ui')]
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -74,9 +78,28 @@ module.exports = {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
+      },
+      {
+        test: /\.tsx?$/,
+        loader: 'ts-loader',
+        options: {
+          appendTsSuffixTo: [/\.vue$/],
+          transpileOnly: true,
+          getCustomTransformers: () => ({
+            before: [
+              require('ts-import-plugin')({
+                "libraryName": "mand-mobile"
+              })
+             ]
+           })
+         }
       }
     ]
   },
+  plugins: [
+    new PostCompilePlugin(),
+    new TransformModulesPlugin()
+  ],
   node: {
     // prevent webpack from injecting useless setImmediate polyfill because Vue
     // source contains it (although only uses it if it's native).
