@@ -29,7 +29,7 @@
 // Vue.component(TgStepper.name, TgStepper);
 // Vue.component(TgSearch.name, TgSearch);
 
-// import '../static/css/style.css'
+// import './assets/style.css'
 
 // Vue.config.productionTip = false
 
