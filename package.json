@@ -1,16 +1,25 @@
 {
-  "name": "fuben",
-  "version": "1.0.0",
-  "description": "test",
+  "name": "tg-ui",
+  "version": "0.0.5",
+  "description": "A fantastic mobile ui lib implement by Vue",
   "author": "[wangyongjian] <[1005934453@qq.com]>",
-  "private": true,
+  "private": false,
   "scripts": {
-    "dev": "webpack-dev-server --open --inline --progress --config build/webpack.dev.conf.js",
+    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "lint": "eslint --ext .js,.vue src",
     "build": "node build/build.js"
   },
+  "main": "lib/index.js",
+  "style": "lib/index.css",
+  "files": [
+    "lib",
+    "src",
+    "components",
+    "examples"
+  ],
   "dependencies": {
+    "compression-webpack-plugin": "^1.1.11",
     "mand-mobile": "^1.5.4",
     "vant": "^1.1.15",
     "vue": "^2.5.2",

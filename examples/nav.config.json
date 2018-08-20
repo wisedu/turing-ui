@@ -1,0 +1,47 @@
+[
+  {
+    "title": "表单组件",
+    "list": [
+      {
+        "path": "/cell",
+        "name": "Cell",
+        "icon": ""
+      },
+      {
+        "path": "/checkbox",
+        "name": "Checkbox",
+        "icon": ""
+      },
+      {
+        "path": "/input",
+        "name": "Input",
+        "icon": ""
+      },
+      {
+        "path": "/radio",
+        "name": "Radio",
+        "icon": ""
+      },
+      {
+        "path": "/search",
+        "name": "Search",
+        "icon": ""
+      },
+      {
+        "path": "/stepper",
+        "name": "Stepper",
+        "icon": ""
+      },
+      {
+        "path": "/switch",
+        "name": "Switch",
+        "icon": ""
+      },
+      {
+        "path": "/textarea",
+        "name": "Textarea",
+        "icon": ""
+      }
+    ]
+  }
+]
