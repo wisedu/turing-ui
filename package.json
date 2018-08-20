@@ -10,6 +10,10 @@
     "lint": "eslint --ext .js,.vue src",
     "build": "node build/build.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wisedu/turing-component.git"
+  },
   "main": "lib/index.js",
   "style": "lib/index.css",
   "files": [
