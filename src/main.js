@@ -2,57 +2,56 @@ import loadSprite from '../components/utils/load-spirte'
 import 'mand-mobile/lib/mand-mobile.css'
 import './assets/style.css'
 
-import TgInput from '../components/input/input.vue'
-import TgTextarea from '../components/textarea/textarea.vue'
-import TgSwitch from '../components/switch/switch.vue'
-import TgRadio from '../components/radio/radio.vue'
-import TgCell from '../components/cell/cell.vue'
-import TgCellGroup from '../components/cell-group/cell-group.vue'
-import TgStepper from '../components/stepper/stepper.vue'
-import TgSearch from '../components/search/search.vue'
-import TgButton from '../components/button/button.vue'
-import TgButtonGroup from '../components/button-group/button-group.vue'
-import TgProgress from '../components/progress/progress.vue'
-import TgCheckbox from '../components/checkbox/checkbox.vue'
-import TgCheckGroup from '../components/check-group/check-group.vue'
+import Input from '../components/input/input.vue'
+import Textarea from '../components/textarea/textarea.vue'
+import Switch from '../components/switch/switch.vue'
+import Radio from '../components/radio/radio.vue'
+import Cell from '../components/cell/cell.vue'
+import CellGroup from '../components/cell-group/cell-group.vue'
+import Stepper from '../components/stepper/stepper.vue'
+import Search from '../components/search/search.vue'
+import Button from '../components/button/button.vue'
+import ButtonGroup from '../components/button-group/button-group.vue'
+import Progress from '../components/progress/progress.vue'
+import Checkbox from '../components/checkbox/checkbox.vue'
+import CheckGroup from '../components/check-group/check-group.vue'
 
 loadSprite();
 const components = [
-	TgInput,
-	TgTextarea,
-	TgSwitch,
-	TgRadio,
-	TgCell,
-	TgCellGroup,
-	TgStepper,
-	TgSearch,
-	TgButton,
-	TgButtonGroup,
-	TgProgress,
-	TgCheckbox,
-	TgCheckGroup
+	Input,
+	Textarea,
+	Switch,
+	Radio,
+	Cell,
+	CellGroup,
+	Stepper,
+	Search,
+	Button,
+	ButtonGroup,
+	Progress,
+	Checkbox,
+	CheckGroup
 ]
 
 const install = function(Vue, config = {}) {
 	if (install.installed) return;
 	install.installed = true
-	Vue.component(TgInput.name, TgInput);
-	Vue.component(TgTextarea.name, TgTextarea);
-	Vue.component(TgSwitch.name, TgSwitch);
-	Vue.component(TgRadio.name, TgRadio);
-	Vue.component(TgCell.name, TgCell);
-	Vue.component(TgCellGroup.name, TgCellGroup);
-	Vue.component(TgStepper.name, TgStepper);
-	Vue.component(TgSearch.name, TgSearch);	
-	Vue.component(TgButton.name, TgButton);
-	Vue.component(TgButtonGroup.name, TgButtonGroup);
-	Vue.component(TgProgress.name, TgProgress);
-	Vue.component(TgCheckbox.name, TgCheckbox);
-	Vue.component(TgCheckGroup.name, TgCheckGroup);	
+	Vue.component(Input.name, Input);
+	Vue.component(Textarea.name, Textarea);
+	Vue.component(Switch.name, Switch);
+	Vue.component(Radio.name, Radio);
+	Vue.component(Cell.name, Cell);
+	Vue.component(CellGroup.name, CellGroup);
+	Vue.component(Stepper.name, Stepper);
+	Vue.component(Search.name, Search);	
+	Vue.component(Button.name, Button);
+	Vue.component(ButtonGroup.name, ButtonGroup);
+	Vue.component(Progress.name, Progress);
+	Vue.component(Checkbox.name, Checkbox);
+	Vue.component(CheckGroup.name, CheckGroup);	
 };
 
 // const Tg = {
-// 	 eslint-disable no-undef 
 // 	version: '0.0.0',
 // 	install
 // }
@@ -83,6 +82,6 @@ export {
 }
 
 export default {
-	version: '0.0.12',
+	version: '0.0.13',
 	install
 }
