@@ -36,7 +36,6 @@ const components = [
 const install = function(Vue, config = {}) {
 	if (install.installed) return;
 	install.installed = true
-	Vue.component(Input.name, Input);
 	Vue.component(TgInput.name, TgInput);
 	Vue.component(TgTextarea.name, TgTextarea);
 	Vue.component(TgSwitch.name, TgSwitch);
@@ -84,6 +83,6 @@ export {
 }
 
 export default {
-	version: '0.0.11',
+	version: '0.0.12',
 	install
 }
