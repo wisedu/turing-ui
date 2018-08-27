@@ -1,7 +1,8 @@
 <template>
-  <div class="tg-radio" :class="{'is-horizontal':horizontal}">
+  <div class="tg-radio" :class="{'is-horizontal':horizontal,'is-button': type == 'button'}">
     <md-radio
       v-model="currentValue"
+      title="单选"
       :options="options"
       :default-index="defaultIndex"
       :invalid-index="invalidIndex"
@@ -21,7 +22,6 @@
 </template>
 <script>
   import {Radio} from 'mand-mobile'
-  import loadSprite from './load-spirte'
   export default {
     name: "tg-radio",
     components: {
@@ -72,7 +72,7 @@
       },
       icon: {
         type: String,
-        default: 'plus'
+        default: 'circle-right'
       },
       iconInverse: {
         type: String,
@@ -84,7 +84,7 @@
       },
       iconSize: {
         type: String,
-        default: 'tg-sm'
+        default: ''
       },
       horizontal: {
         type: Boolean,
@@ -103,10 +103,7 @@
       optionRenderButton(item) {
         return `<button class="tg-radio-button">${item.text}</button>`
       }
-    },
-    mounted() {
-      loadSprite()
-    },
+    }
   }
 </script>
 <style lang="css">
@@ -135,7 +132,7 @@
   .tg-radio .md-field .md-field-content .md-field-item.md-radio-item.icon-left .md-field-item-inner:before {
     left: 52px;
   }
-  .tg-radio .md-icon.tg-sm {
+  .tg-radio .md-icon {
     width: 18px;
     height: 18px;
   }
@@ -166,5 +163,35 @@
   .tg-radio.is-horizontal .md-field .md-field-content {
     flex-direction: initial;
   }
-
+  .tg-radio.is-horizontal .md-field .tg-radio-button {
+    position: relative;
+    padding: 0 9px;
+    color: #767A8C;
+    border: 1px solid #C4C9D9;
+    background-color: #FFFFFF;
+    display: inline-block;
+    height: 24px;
+    line-height: 22px;
+    border-radius: 20px;
+    box-sizing: border-box;
+    font-size: 14px;
+    text-align: center;
+    -webkit-appearance: none;
+    -webkit-text-size-adjust: 100%;
+  }
+  .tg-radio .md-field .md-field-item.md-radio-item.selected {
+    color: #3B7BFF;
+  }
+  .tg-radio.is-horizontal.is-button .md-field .md-field-item .md-field-item-content {
+    padding: 0;
+  }
+  .tg-radio.is-horizontal .md-field .md-field-item:not(:last-child) {
+    margin-right: 17px;
+  }
+  .tg-radio.is-horizontal .md-field .md-field-item.selected .tg-radio-button {
+    color: #FFFFFF;
+    background: #3B7BFF;
+    border-color: #3B7BFF;
+    box-shadow: 0 2px 4px 0 #A9D2FF;
+  }
 </style>

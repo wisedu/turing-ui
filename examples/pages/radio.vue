@@ -60,7 +60,7 @@ export default {
 				{text: '选项2'}, 
 				{text: '选项3'}
 			],
-			value2: '',
+			value2: '男',
 			data2: [
 				{text: '男'}, 
 				{text: '女'}

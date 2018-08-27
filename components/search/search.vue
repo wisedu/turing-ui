@@ -70,7 +70,7 @@
     background: #EDF2FB;
     border-radius: 6px;
     color: #43454F;
-    padding: 4px 5px 4px 24px;
+    padding: 4px 5px 4px 5px;
   }
   .tg-search .van-search .van-icon-search {
     font-size: 14px;

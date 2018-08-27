@@ -76,6 +76,9 @@ input::-moz-placeholder,textarea::-moz-placeholder {/*Mozilla Firefox 18+*/
 input:-ms-input-placeholder,textarea:-ms-input-placeholder {/*Internet Explore*/
 	color:#92969C;
 }
-.md-picker-column .md-picker-column-container .md-picker-column-list .md-picker-column-item ul.column-list li.column-item{
-	font-size: 14px
+.md-check-list .md-check-list-item.is-selected .md-icon, .md-radio .md-field .md-field-item.md-radio-item .md-icon {
+	fill: #3B7BFF;
+}
+.md-check-list .md-check-list-item.is-selected .md-icon, .md-radio .md-field .md-field-item.md-radio-item .md-icon {
+	fill: #3B7BFF;
 }

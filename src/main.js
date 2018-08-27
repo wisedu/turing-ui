@@ -1,6 +1,4 @@
-
-import { Input } from 'cube-ui'
-console.log(Input)
+import loadSprite from '../components/utils/load-spirte'
 import 'mand-mobile/lib/mand-mobile.css'
 import './assets/style.css'
 
@@ -12,7 +10,13 @@ import TgCell from '../components/cell/cell.vue'
 import TgCellGroup from '../components/cell-group/cell-group.vue'
 import TgStepper from '../components/stepper/stepper.vue'
 import TgSearch from '../components/search/search.vue'
+import TgButton from '../components/button/button.vue'
+import TgButtonGroup from '../components/button-group/button-group.vue'
+import TgProgress from '../components/progress/progress.vue'
+import TgCheckbox from '../components/checkbox/checkbox.vue'
+import TgCheckGroup from '../components/check-group/check-group.vue'
 
+loadSprite();
 const components = [
 	TgInput,
 	TgTextarea,
@@ -21,7 +25,12 @@ const components = [
 	TgCell,
 	TgCellGroup,
 	TgStepper,
-	TgSearch
+	TgSearch,
+	TgButton,
+	TgButtonGroup,
+	TgProgress,
+	TgCheckbox,
+	TgCheckGroup
 ]
 
 const install = function(Vue, config = {}) {
@@ -36,6 +45,11 @@ const install = function(Vue, config = {}) {
 	Vue.component(TgCellGroup.name, TgCellGroup);
 	Vue.component(TgStepper.name, TgStepper);
 	Vue.component(TgSearch.name, TgSearch);	
+	Vue.component(TgButton.name, TgButton);
+	Vue.component(TgButtonGroup.name, TgButtonGroup);
+	Vue.component(TgProgress.name, TgProgress);
+	Vue.component(TgCheckbox.name, TgCheckbox);
+	Vue.component(TgCheckGroup.name, TgCheckGroup);	
 };
 
 // const Tg = {
@@ -61,10 +75,15 @@ export {
 	Cell,
 	CellGroup,
 	Stepper,
-	Search
+	Search,
+	Button,
+	ButtonGroup,
+	Progress,
+	Checkbox,
+	CheckGroup
 }
 
 export default {
-	version: '0.0.0',
+	version: '0.0.11',
 	install
 }

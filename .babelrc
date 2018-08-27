@@ -20,6 +20,7 @@
       "libraryName": "mand-mobile",
       "libraryDirectory": "lib",
       "style": true
-    }]
+    }],
+    "transform-es2015-modules-commonjs"
   ]
 }

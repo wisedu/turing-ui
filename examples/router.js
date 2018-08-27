@@ -7,8 +7,11 @@ import Search from './pages/search.vue'
 import Switch from './pages/switch.vue'
 import Radio from './pages/radio.vue'
 import Checkbox from './pages/checkbox.vue'
+import CheckGroup from './pages/check-group.vue'
 import Cell from './pages/cell.vue'
 import Stepper from './pages/stepper.vue'
+import Button from './pages/button.vue'
+import Progress from './pages/progress.vue'
 
 
 Vue.use(Router)
@@ -55,6 +58,11 @@ export default new Router({
     component: Checkbox
   },
   {
+    path: '/check-group',
+    name: 'CheckGroup',
+    component: CheckGroup
+  },
+  {
     path: '/cell',
     name: 'Cell',
     component: Cell
@@ -63,6 +71,16 @@ export default new Router({
     path: '/stepper',
     name: 'Stepper',
     component: Stepper
+  },
+  {
+    path: '/button',
+    name: 'Button',
+    component: Button
+  },
+  {
+    path: '/progress',
+    name: 'Progress',
+    component: Progress
   }
   ]
 })

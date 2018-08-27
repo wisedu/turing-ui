@@ -29,7 +29,7 @@
     color: #C4C9D9;
     background: #EDF2FB;
     line-height: 15px;
-    padding: 20px 0 5px 17px;
+    padding: 10px 0 5px 17px;
   }
   .tg-cell-group .md-field .md-field-content .md-field-item {
     padding-left: 17px;

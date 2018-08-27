@@ -23,8 +23,13 @@
 </template>
 
 <script>
+  import { Input } from 'cube-ui';
+  import 'cube-ui/lib/input/style.css';
   export default {
     name: "tg-input",
+    components: {
+      [Input.name]: Input
+    },
     data() {
       return {
         inputValue: this.value,

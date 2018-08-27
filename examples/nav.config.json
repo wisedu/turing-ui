@@ -3,6 +3,11 @@
     "title": "表单组件",
     "list": [
       {
+        "path": "/button",
+        "name": "Button",
+        "icon": ""
+      },
+      {
         "path": "/cell",
         "name": "Cell",
         "icon": ""
@@ -10,6 +15,11 @@
       {
         "path": "/checkbox",
         "name": "Checkbox",
+        "icon": ""
+      },
+      {
+        "path": "/check-group",
+        "name": "Check-group",
         "icon": ""
       },
       {
@@ -40,6 +50,11 @@
       {
         "path": "/textarea",
         "name": "Textarea",
+        "icon": ""
+      },
+      {
+        "path": "/progress",
+        "name": "Progress",
         "icon": ""
       }
     ]
