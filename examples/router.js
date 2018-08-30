@@ -12,6 +12,8 @@ import Cell from './pages/cell.vue'
 import Stepper from './pages/stepper.vue'
 import Button from './pages/button.vue'
 import Progress from './pages/progress.vue'
+import SegmentPicker from './pages/segment-picker.vue'
+import ActionSheet from './pages/action-sheet.vue'
 
 
 Vue.use(Router)
@@ -81,6 +83,16 @@ export default new Router({
     path: '/progress',
     name: 'Progress',
     component: Progress
+  },
+  {
+    path: '/segment-picker',
+    name: 'SegmentPicker',
+    component: SegmentPicker
+  },
+  {
+    path: '/action-sheet',
+    name: 'ActionSheet',
+    component: ActionSheet
   }
   ]
 })

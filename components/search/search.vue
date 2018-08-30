@@ -92,4 +92,7 @@
     background: #FFFFFF;
     color: #306CE7;
   }
+  .tg-search .van-search__action:active {
+    background-color: #FFFFFF;
+  }
 </style>

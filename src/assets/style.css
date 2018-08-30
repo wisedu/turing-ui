@@ -65,16 +65,16 @@ textarea:disabled, input:not([type]):disabled, input[type="color"]:disabled, inp
 }
 /*设置input,textarea默认placeholder样式*/
 input::-webkit-input-placeholder,textarea::-webkit-input-placeholder {/*WebKit browsers*/
-	color:#92969C;
+	color:#C4C9D9;
 }
 input:-moz-placeholder,textarea:-moz-placeholder {/*Mozilla Firefox 4 to 18*/
-	color:#92969C;
+	color:#C4C9D9;
 }
 input::-moz-placeholder,textarea::-moz-placeholder {/*Mozilla Firefox 18+*/
-	color:#92969C;
+	color:#C4C9D9;
 }
 input:-ms-input-placeholder,textarea:-ms-input-placeholder {/*Internet Explore*/
-	color:#92969C;
+	color:#C4C9D9;
 }
 .md-check-list .md-check-list-item.is-selected .md-icon, .md-radio .md-field .md-field-item.md-radio-item .md-icon {
 	fill: #3B7BFF;

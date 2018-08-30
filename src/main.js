@@ -15,6 +15,8 @@ import ButtonGroup from '../components/button-group/button-group.vue'
 import Progress from '../components/progress/progress.vue'
 import Checkbox from '../components/checkbox/checkbox.vue'
 import CheckGroup from '../components/check-group/check-group.vue'
+import SegmentPicker from '../components/segment-picker/segment-picker.vue'
+import ActionSheet from '../components/action-sheet/action-sheet.vue'
 
 loadSprite();
 const components = [
@@ -30,7 +32,9 @@ const components = [
 	ButtonGroup,
 	Progress,
 	Checkbox,
-	CheckGroup
+	CheckGroup,
+	SegmentPicker,
+	ActionSheet
 ]
 
 const install = function(Vue, config = {}) {
@@ -48,7 +52,9 @@ const install = function(Vue, config = {}) {
 	Vue.component(ButtonGroup.name, ButtonGroup);
 	Vue.component(Progress.name, Progress);
 	Vue.component(Checkbox.name, Checkbox);
-	Vue.component(CheckGroup.name, CheckGroup);	
+	Vue.component(CheckGroup.name, CheckGroup);
+	Vue.component(SegmentPicker.name, SegmentPicker);
+	Vue.component(ActionSheet.name, ActionSheet);	
 };
 
 // const Tg = {
@@ -78,10 +84,12 @@ export {
 	ButtonGroup,
 	Progress,
 	Checkbox,
-	CheckGroup
+	CheckGroup,
+	SegmentPicker,
+	ActionSheet
 }
 
 export default {
-	version: '0.0.13',
+	version: '0.0.14',
 	install
 }

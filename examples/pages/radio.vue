@@ -24,6 +24,8 @@
 		<tg-radio
 			v-model="value1"
 			:options="data1"
+			required
+			title="对你自己的学习能力评分"
 			horizontal
 			@change="handleChange">
 		</tg-radio>
@@ -56,9 +58,10 @@ export default {
 			],
 			value1: '',
 			data1: [
-				{text: '选项1'}, 
-				{text: '选项2'}, 
-				{text: '选项3'}
+				{text: '极差'}, 
+				{text: '一般'}, 
+				{text: '良好'},
+				{text: '优秀'}
 			],
 			value2: '男',
 			data2: [

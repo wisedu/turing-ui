@@ -9,7 +9,7 @@
 			<tg-button type="primary">默认按钮</tg-button>
 			<tg-button type="primary" disabled>按钮disabled</tg-button>
 		</div>
-		<p >通栏（size='small'）:</p>
+		<p >小按钮（size='small'）:</p>
 		<div class="group">
 			<tg-button size="small">小型按钮</tg-button>
 			<tg-button size="small" type="primary">小型按钮</tg-button>

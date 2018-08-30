@@ -1,5 +1,6 @@
 <template>
-  <div class="tg-radio" :class="{'is-horizontal':horizontal,'is-button': type == 'button'}">
+  <div class="tg-radio" :class="{'is-horizontal':horizontal,'is-button': type == 'button','is-required':required&&title}">
+    <div class="tg-radio-title" v-if="title">{{title}}</div>
     <md-radio
       v-model="currentValue"
       title="单选"
@@ -94,7 +95,15 @@
         type: String,
         default: ''
       },
-      optionRender: Function
+      optionRender: Function,
+      title: {
+        type: String,
+        default: ''
+      },
+      required: {
+        type: Boolean,
+        default: false
+      }
     },
     methods: {
       handerChange(value,index) {
@@ -107,6 +116,24 @@
   }
 </script>
 <style lang="css">
+  .tg-radio .tg-radio-title {
+    position: relative;
+    line-height: 20px;
+    padding: 15px 17px;
+    font-size: 16px;
+    color: #13152D;
+    background-color: #FFFFFF;
+  }
+  .tg-radio.is-required .tg-radio-title:before {
+    position: absolute;
+    top: 14px;
+    left: 6px;
+    z-index: 10;
+    content: "*";
+    font-family: SimSun;
+    font-size: 14px;
+    color: #EE3F15;
+  }
   .tg-radio .md-field {
     padding: 0;
   }
@@ -116,13 +143,17 @@
   .tg-radio .md-field .md-field-item.md-radio-item.icon-left .md-field-item-content {
     padding-left: 52px;
   }
-  .tg-radio .md-field .md-field-item.md-radio-item .md-field-item-content {
+  .tg-radio.is-horizontal .md-field .md-field-item.md-radio-item.icon-left .md-field-item-content {
+    padding-left: 45px;
+  }
+  .tg-radio .md-field .md-field-item.md-radio-item .md-field-item-content{
     padding-left: 17px;
   }
   .tg-radio .md-field .md-field-item.md-radio-item .md-field-item-inner {
     min-height: 34px;
     padding: 8px 0;
   }
+
   .tg-radio .md-field .md-field-content .md-field-item .md-field-item-inner:before {
     background-color: #EDF2FB;
   }
@@ -182,10 +213,10 @@
   .tg-radio .md-field .md-field-item.md-radio-item.selected {
     color: #3B7BFF;
   }
-  .tg-radio.is-horizontal.is-button .md-field .md-field-item .md-field-item-content {
+  .tg-radio.is-horizontal.is-button .md-field .md-field-item.md-radio-item .md-field-item-content {
     padding: 0;
   }
-  .tg-radio.is-horizontal .md-field .md-field-item:not(:last-child) {
+  .tg-radio.is-button .md-field .md-field-item:not(:last-child) {
     margin-right: 17px;
   }
   .tg-radio.is-horizontal .md-field .md-field-item.selected .tg-radio-button {
