@@ -1,24 +1,28 @@
 <template>
 	<div class="demo-segment-picker">
 		<p >时间选择器:</p>
-		<tg-button  size="large" type="primary" @click="handleClick('datetime')">时间选择器</tg-button>
 		<tg-segment-picker
-			v-model="value"
+			title="请假时间"
+			required
 			type="datetime"
+			v-model="value"
+			@confirm="handleConfirm"
 		>
 		</tg-segment-picker>
 		<p >日期区间选择器:</p>
-		<tg-button  size="large" type="primary" @click="handleClick('date')">日期区间选择器</tg-button>
 		<tg-segment-picker
 			v-model="value1"
+			title="请假时间"
 			type="date"
+			@confirm="handleConfirm"
 		>
 		</tg-segment-picker>
 		<p >时间区间选择器:</p>
-		<tg-button  size="large" type="primary" @click="handleClick('time')">时间区间选择器</tg-button>
 		<tg-segment-picker
 			v-model="value2"
+			title="请假时间"
 			type="time"
+			@confirm="handleConfirm"
 		>
 		</tg-segment-picker>
 	</div>
@@ -27,10 +31,9 @@
 export default {
 	data() {
 		return {
-			value: false,
-			value1: false,
-			value2: false,
-			data: []
+			value: '2018-8-30 11:59',
+			value1: '2018-8-30 至 2018-9-30',
+			value2: '09:00 至 10:00',
 		}
 	},
 	watch: {
@@ -39,12 +42,8 @@ export default {
 		}
 	},
 	methods: {
-		handleClick(val){
-			switch(val){
-				case 'datetime': this.value = true;break;
-				case 'date': this.value1 = true;break;
-				case 'time': this.value2 = true;break;
-			}
+		handleConfirm(value,value1){
+			console.log(value,value1)
 		}
 	},
 	mounted() {
@@ -62,5 +61,8 @@ export default {
 	font-size: 12px;
 	color: #C4C9D9;
 	padding: 5px 17px;
+}
+.demo-segment-picker .tg-cell {
+	margin-bottom: 10px;
 }
 </style>

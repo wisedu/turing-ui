@@ -1,11 +1,20 @@
 <template>
   <div class="tg-segment-picker">
+    <tg-cell
+      solid
+      :title="title"
+      :required="required"
+      arrow="arrow-right"
+      :align="align"
+      @click="onClick"
+      customized>
+      <span>{{currentValue}}</span>
+      <!-- <i class="tg-icon-clear">X</i> -->
+    </tg-cell>
     <md-popup
       v-model="isTabPickerShow"
       position="bottom"
       :mask-closable="maskClosable"
-      @show="$_onShow"
-      @hide="$_onHide"
       @maskClick="$_onMaskClose"
     >
       <div class="tg-picker-confirm" v-html="okText" @click="$_onPickerConfirm"></div>
@@ -15,8 +24,8 @@
       >
         <div v-for="(option, index) of options" :key="index">
           <van-datetime-picker 
-            v-model="option.currentDate"
-            :type="option.type"
+            v-model = "option.currentDate"
+            :type = "option.type"
             :item-height='40'
             :min-date = 'minDate'
             :max-date = 'maxDate'
@@ -24,7 +33,7 @@
             :max-hour = 'maxHour'
             :min-minute = 'minMinute'
             :max-minute = 'maxMinute'
-            :showToolbar='false'
+            :showToolbar = 'false'
           />
         </div>
       </md-tabs>
@@ -32,7 +41,7 @@
   </div>
 </template>
 <script>
-  import { Popup, PopupTitleBar, Tabs, Picker } from 'mand-mobile'
+  import { Popup, PopupTitleBar, Tabs } from 'mand-mobile'
   import { DatetimePicker } from 'vant';
   const currentYear = new Date().getFullYear();
   export default {
@@ -45,33 +54,42 @@
     },
     data() {
       return {
+        currentValue: this.value,
         isTabPickerShow: false,
         maskClosable: true,
         titles: [],
         options: [],
         inkBarLength: 0.00001,
-        okText: '确定',
+        okText: '确定'
       }
     },
     watch: {
-      value(val) {
-        val && (this.isTabPickerShow = val)
-      },
-      isTabPickerShow(val) {
-        !val && this.$emit('input', val)
+      currentValue(val) {
+        this.$emit('input',val);
       },
       options: {
         handler: function(opts){
-          console.log(opts)
           var currentDate_0 = opts[0].currentDate;
           var currentDate_1 = opts[1].currentDate;
           if(this.type == 'datetime') {
             this.titles[0] = currentDate_0.getFullYear() + '年' + (currentDate_0.getMonth()+1) + '月' + currentDate_0.getDate() + '日';
             this.titles[1] = currentDate_1;
           }else if(this.type == 'date'){
+            if(currentDate_0>currentDate_1){
+              currentDate_1 = currentDate_0;
+              this.$nextTick(()=>{
+                opts[1].currentDate = currentDate_0;
+              })
+            }
             this.titles[0] = currentDate_0.getFullYear() + '年' + (currentDate_0.getMonth()+1) + '月' + currentDate_0.getDate() + '日';
             this.titles[1] = currentDate_1.getFullYear() + '年' + (currentDate_1.getMonth()+1) + '月' + currentDate_1.getDate() + '日';
-          }else{
+          }else if(this.type == 'time'){
+            if(currentDate_0>currentDate_1){
+              currentDate_1 = currentDate_0;
+              this.$nextTick(()=>{
+                opts[1].currentDate = currentDate_0;
+              });
+            }
             this.titles[0] = currentDate_0;
             this.titles[1] = currentDate_1;
           }
@@ -81,8 +99,8 @@
     },
     props: {
       value: {
-        type: Boolean,
-        default: false
+        type: String,
+        default: ''
       },
       type: {
         type: String,
@@ -90,11 +108,11 @@
       },
       minDate: {
         type: Date,
-        default: () => new Date(currentYear - 10, 0, 1)
+        default: () => new Date(currentYear - 99, 0, 1)
       },
       maxDate: {
         type: Date,
-        default: () => new Date(currentYear + 10, 11, 31)
+        default: () => new Date(currentYear + 30, 11, 31)
       },
       minHour: {
         type: Number,
@@ -111,27 +129,67 @@
       maxMinute: {
         type: Number,
         default: 59
-      }
+      },
+      align: {
+        type: String,
+        default: 'right'
+      },
+      title: String,
+      required: Boolean
     },
     methods: {
-      $_onShow() {
-        this.$emit('show')
-      },
-      $_onHide() {
-        console.log('hide')
-        this.$emit('hide')
+      onClick() {
+        this.$_initialTabAndPicker();
+        this.isTabPickerShow = true
       },
       $_onMaskClose() {
-        this.$_refreshTabPicker()
-      },
-      $_refreshTabPicker() {
         this.isTabPickerShow = false
       },
       $_initialTabAndPicker() {
-        console.log(this.type)
+        if(!this.value){
+          this.$_initialDate()
+        }else{
+          var box = [];
+          switch(this.type){
+            case 'datetime': 
+              var datetime = new Date(this.value);
+              if(datetime == "Invalid Date") throw("Invalid Date");
+              var date = datetime.getFullYear() + '年' + (datetime.getMonth()+1) + '月' + datetime.getDate() + '日';
+              var time = (datetime.getHours()>9?datetime.getHours():'0'+ datetime.getHours())+':'+ (datetime.getMinutes()>9?datetime.getMinutes():'0'+datetime.getMinutes());
+              this.titles = [date,time];
+              this.options = [
+                {type: 'date', currentDate: datetime},
+                {type: 'time', currentDate: time}
+              ];
+              break;
+            case 'date':
+              box = this.value.split('至');
+              console.log(box)
+              if(box.length !== 2 || !box[0] || !box[1]) throw("Invalid Date");
+              box[0] = new Date(box[0]);
+              box[1] = new Date(box[1]);
+              if(box[0] == "Invalid Date" || box[1] == "Invalid Date") throw("Invalid Date");
+              this.titles = [box[0],box[1]];
+              this.options = [
+                {type: 'date', currentDate: new Date(box[0])},
+                {type: 'date', currentDate: new Date(box[1])}
+              ];
+              break;
+            case 'time':
+              box = this.value.split('至');
+              this.titles = [box[0],box[1]];
+              this.options = [
+                {type: 'time', currentDate: box[0]},
+                {type: 'time', currentDate: box[1]}
+              ];
+              break;
+          }
+        }
+      },
+      $_initialDate(){
         var now = new Date();
         var date = now.getFullYear() + '年' + (now.getMonth()+1) + '月' + now.getDate() + '日';
-        var time = now.getHours()+':'+ (now.getMinutes()>9?now.getMinutes():'0'+now.getMinutes());
+        var time = (now.getHours()>9?now.getHours():'0'+ now.getHours())+':'+ (now.getMinutes()>9?now.getMinutes():'0'+now.getMinutes());
         switch(this.type){
           case 'datetime': 
             this.titles = [date,time];
@@ -156,14 +214,24 @@
             break;
         }
       },
-      $_onPickerConfirm(e){
-        console.log(this.titles,this.options)
+      $_onPickerConfirm(){
+        this.titles[0] =  this.titles[0].replace(/(年|月)/g,'-').replace(/日/,'')
+        if(this.type == 'datetime'){
+          this.currentValue = this.titles[0] + ' ' + this.titles[1]; 
+        }else if(this.type == 'date'){
+          this.titles[1] =  this.titles[1].replace(/(年|月)/g,'-').replace(/日/,'')
+          this.currentValue = this.titles[0] + '至' + this.titles[1]; 
+        }else{
+          this.currentValue = this.titles[0] + '至' + this.titles[1]; 
+        }
+        this.$emit('confirm', this.titles, this.options);
+        this.isTabPickerShow = false
       }
     },
     mounted(){
       this.$_initialTabAndPicker()
     }
-  }
+  };
 </script>
 <style lang="css">
   .tg-segment-picker .md-tab-bar {
