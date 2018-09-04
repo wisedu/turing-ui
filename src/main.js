@@ -18,6 +18,9 @@ import CheckGroup from '../components/check-group/check-group.vue'
 import SegmentPicker from '../components/segment-picker/segment-picker.vue'
 import MultiPicker from '../components/multi-picker/multi-picker.vue'
 import ActionSheet from '../components/action-sheet/action-sheet.vue'
+import Picker from '../components/picker/picker.vue'
+import DatePicker from '../components/datePicker/datePicker.vue'
+import Selector from '../components/selector/selector.vue'
 
 loadSprite();
 const components = [
@@ -36,7 +39,10 @@ const components = [
 	CheckGroup,
 	SegmentPicker,
 	MultiPicker,
-	ActionSheet
+	ActionSheet,
+	Picker,
+	DatePicker,
+	Selector
 ]
 
 const install = function(Vue, config = {}) {
@@ -58,6 +64,9 @@ const install = function(Vue, config = {}) {
 	Vue.component(SegmentPicker.name, SegmentPicker);
 	Vue.component(MultiPicker.name, MultiPicker);
 	Vue.component(ActionSheet.name, ActionSheet);	
+	Vue.component(Picker.name, Picker);
+	Vue.component(DatePicker.name, DatePicker);	
+	Vue.component(Selector.name, Selector);
 };
 
 // const Tg = {
@@ -90,7 +99,10 @@ export {
 	CheckGroup,
 	SegmentPicker,
 	ActionSheet,
-	MultiPicker
+	MultiPicker,
+	Picker,
+	DatePicker,
+	Selector
 }
 
 export default {

@@ -29,6 +29,9 @@ import TgCheckGroup from '../components/check-group/check-group.vue'
 import TgSegmentPicker from '../components/segment-picker/segment-picker.vue'
 import TgMultiPicker from '../components/multi-picker/multi-picker.vue'
 import TgActionSheet from '../components/action-sheet/action-sheet.vue'
+import TgPicker from '../components/picker/picker.vue'
+import TgDatePicker from '../components/datePicker/datePicker.vue'
+import TgSelector from '../components/selector/selector.vue'
 Vue.component(TgInput.name, TgInput);
 Vue.component(TgTextarea.name, TgTextarea);
 Vue.component(TgSwitch.name, TgSwitch);
@@ -45,6 +48,9 @@ Vue.component(TgCheckGroup.name, TgCheckGroup);
 Vue.component(TgSegmentPicker.name, TgSegmentPicker);
 Vue.component(TgMultiPicker.name, TgMultiPicker);
 Vue.component(TgActionSheet.name, TgActionSheet);
+Vue.component(TgPicker.name, TgPicker);
+Vue.component(TgDatePicker.name, TgDatePicker);
+Vue.component(TgSelector.name, TgSelector);
 
 Vue.config.productionTip = false
 

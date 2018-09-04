@@ -15,6 +15,7 @@ import Progress from './pages/progress.vue'
 import SegmentPicker from './pages/segment-picker.vue'
 import MultiPicker from './pages/multi-picker.vue'
 import ActionSheet from './pages/action-sheet.vue'
+import Picker from './pages/picker.vue'
 
 
 Vue.use(Router)
@@ -99,6 +100,11 @@ export default new Router({
     path: '/action-sheet',
     name: 'ActionSheet',
     component: ActionSheet
+  },
+  {
+    path: '/picker',
+    name: 'Picker',
+    component: Picker
   }
   ]
 })

@@ -71,6 +71,11 @@
         "path": "/multi-picker",
         "name": "MultiPicker",
         "icon": ""
+      },
+      {
+        "path": "/picker",
+        "name": "picker",
+        "icon": ""
       }
     ]
   }
