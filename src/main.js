@@ -21,6 +21,7 @@ import ActionSheet from '../components/action-sheet/action-sheet.vue'
 import Picker from '../components/picker/picker.vue'
 import DatePicker from '../components/datePicker/datePicker.vue'
 import Selector from '../components/selector/selector.vue'
+import TabPicker from '../components/tabPicker/tabPicker.vue'
 
 loadSprite();
 const components = [
@@ -42,7 +43,8 @@ const components = [
 	ActionSheet,
 	Picker,
 	DatePicker,
-	Selector
+	Selector,
+	TabPicker
 ]
 
 const install = function(Vue, config = {}) {
@@ -67,6 +69,7 @@ const install = function(Vue, config = {}) {
 	Vue.component(Picker.name, Picker);
 	Vue.component(DatePicker.name, DatePicker);	
 	Vue.component(Selector.name, Selector);
+	Vue.component(TabPicker.name, TabPicker);
 };
 
 // const Tg = {
@@ -102,7 +105,8 @@ export {
 	MultiPicker,
 	Picker,
 	DatePicker,
-	Selector
+	Selector,
+	TabPicker,
 }
 
 export default {

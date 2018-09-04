@@ -1,9 +1,9 @@
 <template>
 	<div class="demo-picker">
-	  <p>demo0</p>
+	  <p>平铺选择器</p>
 		<tg-cell
 		name="tg-cell"
-		title="标题"
+		title="选择器"
 		arrow="arrow-right"
 		:value="zeroValue"
 		@click="value0 = true">
@@ -15,10 +15,10 @@
 			:defaultIndex="defaultIndex0"
 			@pickerValue="pickerValue0"
 		></tg-selector>
-	  <p>demo1</p>
+	  <p>年份选择器</p>
 		<tg-cell
 		name="tg-cell"
-		title="标题"
+		title="年份选择"
 		arrow="arrow-right"
 		:value="firstValue"
 		@click="value = true">
@@ -31,10 +31,10 @@
 			:defaultIndex="defaultIndex"
 			@pickerValue="pickerValue"
 		></tg-picker>
-	  <p>demo2</p>
+	  <p>地区选择器</p>
 		<tg-cell
 		name="tg-cell"
-		title="标题"
+		title="地区选择"
 		arrow="arrow-right"
 		:value="secondValue"
 		@click="value2 = true">
@@ -47,10 +47,10 @@
 			:defaultIndex="defaultIndex2"
 			@pickerValue="pickerValue2"
 		></tg-picker>
-	  <p>demo3</p>
+	  <p>日期选择器</p>
 		<tg-cell
 		name="tg-cell"
-		title="标题"
+		title="日期选择"
 		arrow="arrow-right"
 		:value="thirdValue"
 		@click="value3 = true">
@@ -64,10 +64,10 @@
 			:formatType="formatType"
 			@pickerValue="pickerValue3"
 		></tg-datePicker>
-	  <p>demo4</p>
+	  <p>时间选择器</p>
 		<tg-cell
 		name="tg-cell"
-		title="标题"
+		title="时间选择"
 		arrow="arrow-right"
 		:value="fourthValue"
 		@click="value4 = true">
@@ -81,6 +81,20 @@
 			:formatType="formatType4"
 			@pickerValue="pickerValue4"
 		></tg-datePicker>
+		<p>区域选择器</p>
+		<tg-cell
+		name="tg-cell"
+		title="区域选择"
+		arrow="arrow-right"
+		:value="fifthValue"
+		@click="value5 = true">
+		</tg-cell>
+		<tg-tabPicker
+			v-model="value5"
+			:pickerData="pickerData5"
+			:title="title5"
+			@pickerValue="pickerValue5"
+		></tg-tabPicker>
 	</div>
 </template>
 <script>
@@ -89,23 +103,29 @@ export default {
 		return {
 			//<=4 选择器  data
 			title0: '选择器',
-			zeroValue:"选择器",
+			zeroValue:"选项2",
 			value0: false,
 			pickerData0: [{text:"选项1"},{text:"选项2"},{text:"选项3"},{text:"选项4"}],
 			defaultIndex0: 1,
 
 			//日期picker data
 			title3:'选择日期',
-			thirdValue:"日期选择",
+			thirdValue:"请选择",
 			value3:false,
 			todayText:'今天',  //&(今天)
 			type:'custom',   //date, time, datetime, custom
 			formatType:'yyyy-MM-dd',
 			customTypes:['yyyy','MM','dd'],  //type="custom"时生效 格式['yyyy', 'MM','dd', 'hh', 'mm']
 
+			//区域tab选择 tabpicker data
+			title5:'选择title',
+			value5:false,
+			fifthValue:"请选择",
+			pickerData5: [{"label":"江苏省","value":1,"children":[{"label":"南京市","value":2,"children":[{"label":"江宁区","value":11,"children":""},{"label":"雨花台区","value":22,"children":""},{"label":"白下区","value":22,"children":""},{"label":"秦淮区","value":22,"children":""}]}]},{"label":"安徽省","value":2,"children":[{"label":"合肥市","value":2,"children":[{"label":"某某区","value":11,"children":""}]}]}],
+			
 			//时间picker data
 			title4:'选择时间',
-			fourthValue:"时间选择",
+			fourthValue:"请选择",
 			value4:false,
 			todayText4:'',
 			type4:'custom',
@@ -114,7 +134,7 @@ export default {
 
 			//年份选择picker  data
 			title: '请选择年份',
-			firstValue:"年份选择",
+			firstValue:"2017",
 			value:false,
 			pickerData: [[{text:"2015",value:1},{text:"2016",value:2},{text:"2017",value:3},{text:"2018",value:4},{text:"2019",value:5},{text:"2020",value:6}]],
 			cols:1,
@@ -122,7 +142,7 @@ export default {
 
 			//区域选择picker data
 			title2:'选择省市区/县',
-			secondValue:"地区选择",
+			secondValue:"安徽省 六安市 霍邱县县级县级",
 			value2:false,
 			cols2:3,
 			defaultIndex2:[0],
@@ -195,19 +215,22 @@ export default {
 	},
 	methods: {
 		pickerValue0: function (val){
-			this.zeroValue = this.zeroValue.split(" ")[0] +" "+ val;
+			this.zeroValue = val;
 	    },
 		pickerValue: function (val){
-			this.firstValue = this.firstValue.split(" ")[0] +" "+ val;
+			this.firstValue = val;
 	    },
 		pickerValue2: function (val){
-			this.secondValue = this.secondValue.split(" ")[0] +" "+ val;
+			this.secondValue = val;
 	    },
 		pickerValue3: function (val){
-			this.thirdValue = this.thirdValue.split(" ")[0] +" "+ val;
+			this.thirdValue = val;
 	    },
 		pickerValue4: function (val){
-			this.fourthValue = this.fourthValue.split(" ")[0] +" "+ val;
+			this.fourthValue = val;
+	    },
+		pickerValue5: function (val){
+			this.fifthValue = val;
 	    }
 
 	},
@@ -222,6 +245,11 @@ export default {
 <style>
 	.demo-picker{
 		background: #EDF2FB;
-		padding: 10px 0;
+	}
+	.demo-picker>p {
+		padding-left: 17px;
+		font-size: 12px;
+		color: #C4C9D9;
+		padding: 5px 17px;
 	}
 </style>
