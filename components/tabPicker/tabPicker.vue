@@ -175,6 +175,6 @@
   }
   .tg-tab-picker .md-tab-bar .md-tab-titles-wrapper{
     display: inline-block;
-    padding-left: 15px;
+    padding-left: 19px;
   }
 </style>
