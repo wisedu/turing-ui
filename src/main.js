@@ -16,6 +16,7 @@ import Progress from '../components/progress/progress.vue'
 import Checkbox from '../components/checkbox/checkbox.vue'
 import CheckGroup from '../components/check-group/check-group.vue'
 import SegmentPicker from '../components/segment-picker/segment-picker.vue'
+import MultiPicker from '../components/multi-picker/multi-picker.vue'
 import ActionSheet from '../components/action-sheet/action-sheet.vue'
 
 loadSprite();
@@ -34,6 +35,7 @@ const components = [
 	Checkbox,
 	CheckGroup,
 	SegmentPicker,
+	MultiPicker,
 	ActionSheet
 ]
 
@@ -54,6 +56,7 @@ const install = function(Vue, config = {}) {
 	Vue.component(Checkbox.name, Checkbox);
 	Vue.component(CheckGroup.name, CheckGroup);
 	Vue.component(SegmentPicker.name, SegmentPicker);
+	Vue.component(MultiPicker.name, MultiPicker);
 	Vue.component(ActionSheet.name, ActionSheet);	
 };
 
@@ -86,7 +89,8 @@ export {
 	Checkbox,
 	CheckGroup,
 	SegmentPicker,
-	ActionSheet
+	ActionSheet,
+	MultiPicker
 }
 
 export default {

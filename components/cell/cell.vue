@@ -128,6 +128,7 @@
   .tg-cell .md-field-item .md-field-item-label .md-field-item-title {
     font-size: 14px;
     line-height: normal;
+    word-break: break-all;
   }
   .tg-cell .md-field-item .md-field-item-label .md-field-item-brief {
     font-size: 12px;
@@ -143,7 +144,8 @@
     margin-left: 0;
   }
   .tg-cell .md-field-item.has-arrow .md-field-item-content {
-    padding-right: 14px;
+    padding-right: 0;
+    margin-right: 14px;
   }
   .tg-cell .md-field-item .md-field-arrow {
     color: #C4C9D9;

@@ -46,13 +46,14 @@
       :options="options4"
       horizontal
     ></tg-check-group>
-<!--     <tg-check-group
+    <tg-check-group
       v-model="selected4"
-      title="内容自定义"
+      title="携带副标题"
       :options="options5"
+      iconPosition="right"
       hasInputOption
       inputOptionPlaceholder="请输入其他答案"
-    > -->
+    >
     </tg-check-group>
   </div>
 </template>

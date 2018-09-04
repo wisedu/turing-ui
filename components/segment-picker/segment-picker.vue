@@ -41,14 +41,13 @@
   </div>
 </template>
 <script>
-  import { Popup, PopupTitleBar, Tabs } from 'mand-mobile'
+  import { Popup, Tabs } from 'mand-mobile'
   import { DatetimePicker } from 'vant';
   const currentYear = new Date().getFullYear();
   export default {
     name: "tg-segment-picker",
     components: {
       [Popup.name]: Popup,
-      [PopupTitleBar.name]: PopupTitleBar,
       [Tabs.name]: Tabs,
       [DatetimePicker.name]: DatetimePicker
     },
@@ -130,10 +129,7 @@
         type: Number,
         default: 59
       },
-      align: {
-        type: String,
-        default: 'right'
-      },
+      align: String,
       title: String,
       required: Boolean
     },
@@ -234,6 +230,10 @@
   };
 </script>
 <style lang="css">
+  .tg-segment-picker .md-popup .md-popup-mask {
+    background-color: #13152D;
+    opacity: 0.5;
+  }
   .tg-segment-picker .md-tab-bar {
     font-size: 14px;
     height: 60px;
@@ -245,7 +245,7 @@
   }
   .tg-segment-picker .md-tab-bar .md-tab-title.active {
     position: relative;
-    color: #43454F;
+    color: #13152D;
   }
   .tg-segment-picker .md-tab-bar .md-tab-title.active:before {
     content: "";

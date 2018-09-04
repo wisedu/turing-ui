@@ -27,6 +27,7 @@ import TgProgress from '../components/progress/progress.vue'
 import TgCheckbox from '../components/checkbox/checkbox.vue'
 import TgCheckGroup from '../components/check-group/check-group.vue'
 import TgSegmentPicker from '../components/segment-picker/segment-picker.vue'
+import TgMultiPicker from '../components/multi-picker/multi-picker.vue'
 import TgActionSheet from '../components/action-sheet/action-sheet.vue'
 Vue.component(TgInput.name, TgInput);
 Vue.component(TgTextarea.name, TgTextarea);
@@ -42,6 +43,7 @@ Vue.component(TgProgress.name, TgProgress);
 Vue.component(TgCheckbox.name, TgCheckbox);
 Vue.component(TgCheckGroup.name, TgCheckGroup);
 Vue.component(TgSegmentPicker.name, TgSegmentPicker);
+Vue.component(TgMultiPicker.name, TgMultiPicker);
 Vue.component(TgActionSheet.name, TgActionSheet);
 
 Vue.config.productionTip = false

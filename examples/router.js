@@ -13,6 +13,7 @@ import Stepper from './pages/stepper.vue'
 import Button from './pages/button.vue'
 import Progress from './pages/progress.vue'
 import SegmentPicker from './pages/segment-picker.vue'
+import MultiPicker from './pages/multi-picker.vue'
 import ActionSheet from './pages/action-sheet.vue'
 
 
@@ -88,6 +89,11 @@ export default new Router({
     path: '/segment-picker',
     name: 'SegmentPicker',
     component: SegmentPicker
+  },
+  {
+    path: '/multi-picker',
+    name: 'MultiPicker',
+    component: MultiPicker
   },
   {
     path: '/action-sheet',

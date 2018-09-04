@@ -4,7 +4,7 @@
     "list": [
       {
         "path": "/action-sheet",
-        "name": "Action-sheet",
+        "name": "ActionSheet",
         "icon": ""
       },
       {
@@ -24,7 +24,7 @@
       },
       {
         "path": "/check-group",
-        "name": "Check-group",
+        "name": "CheckGroup",
         "icon": ""
       },
       {
@@ -64,7 +64,12 @@
       },
       {
         "path": "/segment-picker",
-        "name": "Segment-picker",
+        "name": "SegmentPicker",
+        "icon": ""
+      },
+      {
+        "path": "/multi-picker",
+        "name": "MultiPicker",
         "icon": ""
       }
     ]

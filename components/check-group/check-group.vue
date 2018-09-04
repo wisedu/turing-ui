@@ -10,7 +10,11 @@
       :max="max"
       :title="title"
       :disabled="disabled"
-    >
+    > 
+      <div slot="content" slot-scope="{ option }">
+        <p v-text="option.label"></p>
+        <p class="tg-muted" v-text="option.desc" v-if="option.desc"></p>
+      </div>
     </md-check-list>
   </div>
 </template>
@@ -109,12 +113,14 @@
   .tg-check-group .md-check-list .md-field-item .md-field-item-inner {
     min-height: 34px;
     padding: 8px 0;
+    box-shadow: inset 0 -1px 0 0 #EDF2FB;
   }
   .tg-check-group.is-horizontal .md-check-list .md-field-item .md-field-item-inner {
     padding: 0;
+    box-shadow: none;
   }
   .tg-check-group .md-field .md-field-content .md-field-item .md-field-item-inner:before {
-    background-color: #EDF2FB;
+    background-color: transparent;
   }
   .tg-check-group.is-horizontal .md-field .md-field-content .md-field-item .md-field-item-inner:before {
     background-color: transparent;
@@ -148,10 +154,6 @@
     width: 50%;
     display: inline-block;
   }
-  /*.tg-check-group.is-horizontal.column-3 .md-field .md-field-content .md-field-item {
-    width: 33.3%;
-    display: inline-block;
-  }*/
   .tg-check-group.is-horizontal .md-field .md-field-content .md-field-item {
     width: 25%;
     display: inline-block;
@@ -204,5 +206,9 @@
   }
   .tg-check-group .tg-check-group-input input:focus {
     color: #3B7BFF;
+  }
+  .tg-check-group .tg-muted {
+    font-size: 12px;
+    color: #767A8C;
   }
 </style>
