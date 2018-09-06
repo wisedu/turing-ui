@@ -135,14 +135,16 @@ export default {
     font-size: 20px !important;
   }
   .tg-datePicker .md-picker-column .md-picker-column-container .md-picker-column-list .md-picker-column-item ul.column-list li.column-item{
-    border-top: 2px solid #F6F9FD;
+    /* border-top: 2px solid #F6F9FD; */
     font-size: 15px !important;
   }
   .tg-datePicker .md-picker-column .md-picker-column-container .md-picker-column-masker.bottom:after{
-    background:none;
+    /* background:none; */
+    height: 1px;
   }
   .tg-datePicker .md-picker-column .md-picker-column-container .md-picker-column-masker.top:before{
-    background:none;
+    /* background:none; */
+    height: 1px;
   }
   .tg-datePicker .md-popup-title-bar:before{
     -webkit-transform: scaleY(1) translateY(100%);

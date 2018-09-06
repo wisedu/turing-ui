@@ -62,10 +62,14 @@
         if (selected) {
           console.log(`[Mand Mobile] TabPicker 确认选择项: ${JSON.stringify(selected)}`)
           var value = "";
+          var val = selected;
+          if(typeof selected == "object"){
+            val = JSON.stringify(selected);
+          }
           selected.forEach(element => {
             value += element.item.label+" ";
           });
-          this.$emit('pickerValue', value)
+          this.$emit('pickerValue', val)
         } else {
           console.warn('[Mand Mobile] TabPicker 点击确认按钮时未选择到任何确定项')
         }

@@ -57,8 +57,8 @@
     },
     methods: {
       onSelectorConfirm(obj) {
-        console.log(obj.text);
-        this.$emit('pickerValue', obj.text )
+        console.log(obj);
+        this.$emit('pickerValue', obj )
       }
     }
   }

@@ -71,8 +71,12 @@
         values.forEach(value => {
           value && (res += `${value.text || value.label} `)
         })
-        console.log(res);
-        this.$emit('pickerValue', res )
+        console.log(values);
+        var val = values;
+        if(typeof values == "object"){
+          val = JSON.stringify(val);
+        }
+        this.$emit('pickerValue', val )
       },
       onChange(columnIndex, itemIndex, value) {
         console.log(value)
@@ -113,17 +117,19 @@
     font-size: 18px;
   }
   .tg-picker .md-picker-column .md-picker-column-container .md-picker-column-list .md-picker-column-item ul.column-list li.column-item{
-    border-top: 2px solid #F6F9FD;
+    /* border-top: 2px solid #F6F9FD; */
     font-size: 15px;
     /* height: 40px !important;
     line-height: 40px !important; */
     color:#43454F;
   }
   .tg-picker .md-picker-column .md-picker-column-container .md-picker-column-masker.bottom:after{
-    background:none;
+    /* background:none; */
+    height: 1px;
   }
   .tg-picker .md-picker-column .md-picker-column-container .md-picker-column-masker.top:before{
-    background:none;
+    /* background:none; */
+    height: 1px;
   }
   .tg-picker .md-popup-title-bar:before{
     -webkit-transform: scaleY(1) translateY(100%);

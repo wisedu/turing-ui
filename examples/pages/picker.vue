@@ -215,13 +215,23 @@ export default {
 	},
 	methods: {
 		pickerValue0: function (val){
-			this.zeroValue = val;
+			this.zeroValue = val.text;
 	    },
 		pickerValue: function (val){
-			this.firstValue = val;
+			let res = ''
+			var values = JSON.parse(val);
+			values.forEach(value => {
+				value && (res += `${value.text || value.label} `)
+			})
+			this.firstValue = res;
 	    },
 		pickerValue2: function (val){
-			this.secondValue = val;
+			let res = ''
+			var values = JSON.parse(val);
+			values.forEach(value => {
+				value && (res += `${value.text || value.label} `)
+			})
+			this.secondValue = res;
 	    },
 		pickerValue3: function (val){
 			this.thirdValue = val;
@@ -230,7 +240,12 @@ export default {
 			this.fourthValue = val;
 	    },
 		pickerValue5: function (val){
-			this.fifthValue = val;
+			var selected = JSON.parse(val);
+			var value = "";
+			selected.forEach(element => {
+				value += element.item.label+" ";
+			});
+			this.fifthValue = value;
 	    }
 
 	},
