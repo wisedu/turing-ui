@@ -1,6 +1,6 @@
 <template>
   <div class="demo-check-group">
-    <p>标准用法{{selected}}</p>
+    <p @click="click">标准用法{{selected}}</p>
     <tg-check-group
       v-model="selected"
       :options="options"
@@ -64,7 +64,7 @@ export default {
       selected: ["2","3"],
       options: [
         {value: '1', label: '选项一', disabled: false},
-        {value: '2', label: '选项三', disabled: true},
+        {value: '2', label: '选项三', disabled: false},
         {value: '3', label: '选项六字数超长长长长长长长长长长长长长长长长长长', disabled: false},
       ],
       selected1: ['APP设计','WEB设计'],
@@ -101,28 +101,17 @@ export default {
       ],
     }
   },
-  computed: {
-    title() {
-      return  "标准用法：["+this.selected+"]"
-    },
-    title1() {
-      return  "icon居右: ["+this.selected+"]"
-    },
-    title2() {
-      return  "最多选择3项: ["+this.selected2+"]"
-    },
-    title3() {
-      return  "单项选择值: "+this.selected3+""
-    }
-  },
   watch: {
     selected(newValue) {
-      console.log(newValue)
+      //console.log(newValue)
     }
   },
   methods: {
     handleChange(val){
       console.log(val)
+    },
+    click(){
+      this.selected = ['1'];
     }
   },
   mounted() {

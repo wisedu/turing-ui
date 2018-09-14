@@ -16,12 +16,16 @@
 export default {
 	data() {
 		return {
-			value: '',
+			value: ['bbb'],
 			options: [
 				{value: 'aaa', label: '未按时到到维修地点'},
 				{value: 'bbb', label: '维修师傅态度恶劣'},
 				{value: 'ccc', label: '多收费'},
-				{value: 'ddd', label: '未维修成功'}
+				{value: 'ddd', label: '未维修成功'},
+				{value: 'eee', label: '选项五'},
+				{value: 'fff', label: '选项六'},
+				{value: 'ggg', label: '选项七'},
+				{value: 'hhh', label: '选项八'}
 			]
 		}
 	},

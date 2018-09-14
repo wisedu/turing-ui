@@ -33,6 +33,9 @@ import TgPicker from '../components/picker/picker.vue'
 import TgDatePicker from '../components/datePicker/datePicker.vue'
 import TgSelector from '../components/selector/selector.vue'
 import TgTabPicker from '../components/tabPicker/tabPicker.vue'
+import TgSteps from '../components/steps/steps.vue'
+import TgPopup from '../components/popup/popup.vue'
+import TgIndexList from '../components/index-list/index-list.vue'
 Vue.component(TgInput.name, TgInput);
 Vue.component(TgTextarea.name, TgTextarea);
 Vue.component(TgSwitch.name, TgSwitch);
@@ -53,6 +56,9 @@ Vue.component(TgPicker.name, TgPicker);
 Vue.component(TgDatePicker.name, TgDatePicker);
 Vue.component(TgSelector.name, TgSelector);
 Vue.component(TgTabPicker.name, TgTabPicker);
+Vue.component(TgSteps.name, TgSteps);
+Vue.component(TgPopup.name, TgPopup);
+Vue.component(TgIndexList.name, TgIndexList);
 
 Vue.config.productionTip = false
 

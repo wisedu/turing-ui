@@ -16,6 +16,9 @@ import SegmentPicker from './pages/segment-picker.vue'
 import MultiPicker from './pages/multi-picker.vue'
 import ActionSheet from './pages/action-sheet.vue'
 import Picker from './pages/picker.vue'
+import Steps from './pages/steps.vue'
+import Popup from './pages/popup.vue'
+import IndexList from './pages/index-list.vue'
 
 
 Vue.use(Router)
@@ -105,6 +108,21 @@ export default new Router({
     path: '/picker',
     name: 'Picker',
     component: Picker
+  },
+  {
+    path: '/steps',
+    name: 'Steps',
+    component: Steps
+  },
+  {
+    path: '/popup',
+    name: 'Popup',
+    component: Popup
+  },
+  {
+    path: '/index-list',
+    name: 'IndexList',
+    component: IndexList
   }
   ]
 })

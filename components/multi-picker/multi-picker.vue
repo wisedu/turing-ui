@@ -10,11 +10,11 @@
       customized>
         <div class="tg-multi-picker-value">{{currentValue}}</div>
     </tg-cell>
-    <md-popup
+    <tg-popup
       v-model = "isTabPickerShow"
-      position = "bottom"
       :mask-closable = "maskClosable"
       @maskClick = "$_onMaskClose"
+      position = "bottom"
     >
       <md-popup-title-bar
         :title = "titleBar"
@@ -28,7 +28,7 @@
         :options = "options"
         icon-position = "right"
       ></tg-check-group>
-    </md-popup>
+    </tg-popup>
   </div>
 </template>
 <script>
@@ -41,22 +41,33 @@
     },
     data() {
       return {
-        currentValue: this.value,
         isTabPickerShow: false,
         maskClosable: true,
-        selected: []
+        selected: this.value
       }
     },
     watch: {
       value(newValue) {
-        this.currentValue = newValue
-      },
-      currentValue(newValue) {
-        this.$emit("input", newValue)
+        this.selected = newValue;
+      }
+    },
+    computed: {
+      currentValue (){
+        var self = this;
+        var labels = [];
+        this.options.forEach(function(opt){
+          if(self.value.indexOf(opt.value) > -1){
+            labels.push(opt.label);
+          }
+        });
+        return labels.join(',');
       }
     },
     props: {
-      value: {},
+      value: {
+        type: Array,
+        default: []
+      },
       title: String,
       required: Boolean,
       align: String,
@@ -83,23 +94,23 @@
       },
       $_onMaskClose() {
         this.isTabPickerShow = false;
+        this.selected = this.value;
       },
       handleCancel() {
         this.isTabPickerShow = false;
+        this.selected = this.value
         this.$emit('cancel');
       },
       handleConfirm() {
         this.isTabPickerShow = false;
         var result = [];
-        var labels = [];
         var self = this;
         this.options.forEach(function(opt){
           if(self.selected.indexOf(opt.value) > -1){
             result.push(opt);
-            labels.push(opt.label)
           }
         });
-        this.currentValue = labels.join(',');
+        this.$emit("input", this.selected)
         this.$emit('confirm',result);
       }
     }

@@ -22,6 +22,8 @@ import Picker from '../components/picker/picker.vue'
 import DatePicker from '../components/datePicker/datePicker.vue'
 import Selector from '../components/selector/selector.vue'
 import TabPicker from '../components/tabPicker/tabPicker.vue'
+import Steps from '../components/steps/steps.vue'
+import Popup from '../components/popup/popup.vue'
 
 loadSprite();
 const components = [
@@ -44,7 +46,9 @@ const components = [
 	Picker,
 	DatePicker,
 	Selector,
-	TabPicker
+	TabPicker,
+	Steps,
+	Popup
 ]
 
 const install = function(Vue, config = {}) {
@@ -70,6 +74,8 @@ const install = function(Vue, config = {}) {
 	Vue.component(DatePicker.name, DatePicker);	
 	Vue.component(Selector.name, Selector);
 	Vue.component(TabPicker.name, TabPicker);
+	Vue.component(Steps.name, Steps);
+	Vue.component(Popup.name, Popup);
 };
 
 // const Tg = {
@@ -107,9 +113,11 @@ export {
 	DatePicker,
 	Selector,
 	TabPicker,
+	Steps,
+	Popup
 }
 
 export default {
-	version: '0.0.14',
+	version: '0.0.18',
 	install
 }

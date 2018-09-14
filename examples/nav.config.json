@@ -74,7 +74,27 @@
       },
       {
         "path": "/picker",
-        "name": "picker",
+        "name": "Picker",
+        "icon": ""
+      },
+      {
+        "path": "/steps",
+        "name": "Steps",
+        "icon": ""
+      },
+      {
+        "path": "/popup",
+        "name": "Popup",
+        "icon": ""
+      }
+    ]
+  },
+  {
+    "title": "列表组件",
+    "list": [
+      {
+        "path": "/index-list",
+        "name": "Index-list",
         "icon": ""
       }
     ]

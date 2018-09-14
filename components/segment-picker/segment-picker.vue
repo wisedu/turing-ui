@@ -11,7 +11,7 @@
       <span>{{currentValue}}</span>
       <!-- <i class="tg-icon-clear">X</i> -->
     </tg-cell>
-    <md-popup
+    <tg-popup
       v-model="isTabPickerShow"
       position="bottom"
       :mask-closable="maskClosable"
@@ -37,7 +37,7 @@
           />
         </div>
       </md-tabs>
-    </md-popup>
+    </tg-popup>
   </div>
 </template>
 <script>

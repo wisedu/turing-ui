@@ -1,15 +1,22 @@
 <template>
   <div class="tg-action-sheet">
-      <cube-action-sheet
-        v-model="visible"
-        :data="data"
-        :title="title"
-        :active="active"
-        :maskClosable="maskClosable"
-        :cancelTxt="cancelTxt"
-        @select="handleSelect"
-        @cancel="handleCancel">  
-      </cube-action-sheet>
+      <tg-popup
+        v-model = "visible"
+        :mask-closable = "maskClosable"
+        position="bottom"
+        @mask-click="maskClick">
+        <cube-action-sheet
+          v-model="visible"
+          :data="data"
+          :title="title"
+          :active="active"
+          :maskClosable="maskClosable"
+          :z-index="zIndex"
+          :cancelTxt="cancelTxt"
+          @select="handleSelect"
+          @cancel="handleCancel">  
+        </cube-action-sheet>
+      </tg-popup>
   </div>
 </template>
 <script>
@@ -54,6 +61,10 @@
       cancelTxt: {
         type: String,
         default: '取消'
+      },
+      zIndex: {
+        type: Number,
+        default: 100
       }
     },
     methods: {
@@ -63,13 +74,27 @@
       handleSelect(item, index) {
         this.$emit("select", item, index)
       },
+      maskClick() {
+        this.$emit("mask-click")
+      },
     }
   }
 </script>
 <style lang="css">
+  .tg-action-sheet .cube-popup {
+    position: relative;
+  }
+  .tg-action-sheet .cube-popup-container {
+    position: static;
+    transform: none;
+    height: initial;
+  }
+  .tg-action-sheet .cube-popup-content {
+    position: static;
+    transform: none;
+  }
   .tg-action-sheet .cube-popup-mask {
-    background-color: #13152D;
-    opacity: 0.5;
+    display: none!important;
   }
   .tg-action-sheet .cube-action-sheet-cancel span, .tg-action-sheet .cube-action-sheet-item, .tg-action-sheet .cube-action-sheet-title {
     font-size: 14px;
@@ -92,5 +117,13 @@
   } 
   .tg-action-sheet .border-bottom-1px {
     position: relative;
+  }
+  .tg-action-sheet .cube-action-sheet-content {
+    max-height: 300px;
+    overflow: scroll;
+  }
+  .tg-action-sheet .cube-action-sheet-space {
+    height: 5px;
+    background-color: rgba(19,21,45,0.50);
   }
 </style>

@@ -72,7 +72,7 @@
         title="标题"
         value="左侧标题图标插槽">
         <svg class="icon" aria-hidden="true" slot="left" >
-          <use xlink:href="#plus"></use>
+          <use xlink:href="#arrow"></use>
         </svg>
       </tg-cell>
       <tg-cell

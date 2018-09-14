@@ -33,7 +33,9 @@
 			:data="data1"
 			@select="handleSelect"
 			@cancel="handleCancel"
+			@mask-click="maskClick"
 		></tg-action-sheet>
+		<tg-cell v-for="n in 10" :value="String(n)" :key="n"></tg-cell>
 	</div>
 </template>
 <script>
@@ -94,6 +96,9 @@ export default {
 		},
 		handleSelect(item, index){
 			console.log('select', item, index)
+		},
+		maskClick(){
+			console.log('maskClick')
 		},
 	},
 	mounted() {

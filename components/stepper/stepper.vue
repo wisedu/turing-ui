@@ -102,6 +102,7 @@
   .tg-stepper .md-stepper .md-stepper-number input {
     width: 24px;
     height: 24px;
+    line-height: 24px;
     font-size: 14px;
     background: #EDF2FB;
   }

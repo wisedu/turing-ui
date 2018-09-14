@@ -95,6 +95,9 @@
 			:title="title5"
 			@pickerValue="pickerValue5"
 		></tg-tabPicker>
+		<tg-cell-group>
+			<tg-cell v-for="n in 20" :key="n"  :value="String(n)"></tg-cell>
+		</tg-cell-group>
 	</div>
 </template>
 <script>
@@ -121,7 +124,7 @@ export default {
 			title5:'选择title',
 			value5:false,
 			fifthValue:"请选择",
-			pickerData5: [{"label":"江苏省","value":1,"children":[{"label":"南京市","value":2,"children":[{"label":"江宁区","value":11,"children":""},{"label":"雨花台区","value":22,"children":""},{"label":"白下区","value":22,"children":""},{"label":"秦淮区","value":22,"children":""}]}]},{"label":"安徽省","value":2,"children":[{"label":"合肥市","value":2,"children":[{"label":"某某区","value":11,"children":""}]}]}],
+			pickerData5: [{"label":"江苏省","value":1,"children":[{"label":"南京市","value":2,"children":[{"label":"江宁区","value":11,"children":""},{"label":"雨花台区","value":22,"children":""},{"label":"白下区","value":22,"children":""},{"label":"秦淮区","value":22,"children":""},{"label":"xxx","value":22,"children":""},{"label":"xxx","value":22,"children":""},{"label":"xxx","value":22,"children":""},{"label":"xxx","value":22,"children":""},{"label":"xxx","value":22,"children":""}]}]},{"label":"安徽省","value":2,"children":[{"label":"合肥市","value":2,"children":[{"label":"某某区","value":11,"children":""}]}]}],
 			
 			//时间picker data
 			title4:'选择时间',
