@@ -1,5 +1,5 @@
 <template>
-  <div class="tg-cell" :class="{'is-require':required,'is-baseline':baseline, 'is-readonly': readonly, 'is-nolabel': isNoLabel, 'is-column': column}">
+  <div class="tg-cell" :class="[{'is-require':required,'is-baseline':baseline, 'is-readonly': readonly, 'is-nolabel': isNoLabel, 'is-column': column}]">
     <md-field-item
       :name="name"
       :title="title"
@@ -67,6 +67,7 @@
     },
     methods: {
       onClick(name){
+        if(this.readonly) return
         this.$emit('click',name)
       }
     }
@@ -88,7 +89,7 @@
     color: #EE3F15;
   }
   .tg-cell.is-baseline.is-require:before,.tg-cell.is-column.is-require:before {
-    top: 26px;
+    top: 17px;
   }
   .tg-cell.is-baseline .md-field-item .md-field-item-inner{
     align-items: baseline

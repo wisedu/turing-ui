@@ -15,7 +15,6 @@
     <p>按钮居右用法：{{selected1}}</p>
     <tg-check-group
       v-model="selected1"
-      required
       title="2.你对哪一类设计比较感兴趣？"
       iconPosition="right"
       :options="options1"
@@ -38,13 +37,22 @@
       :options="options4"
       disabled
     ></tg-check-group>
-    <p>多选组横向布局： {{selected4}}</p>
+    <p>多选组横向布局（25%）： {{selected4}}</p>
     <tg-check-group
       v-model="selected4"
       required
       title="3.以下钱币中你喜欢哪些？（多选）"
       :options="options4"
       horizontal
+    ></tg-check-group>
+    <p>多选组横向布局（50%）： {{selected4}}</p>
+    <tg-check-group
+      v-model="selected4"
+      required
+      title="3.以下钱币中你喜欢哪些？（多选）"
+      :options="options4"
+      horizontal
+      :column="2"
     ></tg-check-group>
     <tg-check-group
       v-model="selected4"
@@ -65,7 +73,7 @@ export default {
       options: [
         {value: '1', label: '选项一', disabled: false},
         {value: '2', label: '选项三', disabled: false},
-        {value: '3', label: '选项六字数超长长长长长长长长长长长长长长长长长长', disabled: false},
+        {value: '3', label: '选项六字数超长长长长长长长长长长长长长长长长长长', disabled: true},
       ],
       selected1: ['APP设计','WEB设计'],
       options1: [

@@ -144,9 +144,6 @@
     opacity: 1;
     color: #C4C9D9;
   }
-  .tg-check-group .md-field-item.disabled .md-icon {
-    fill: #EDF2FB;
-  }
   .tg-check-group.is-horizontal .md-field .md-field-content>div {
     padding: 8px 0;
   }
@@ -170,6 +167,12 @@
     font-family: SimSun;
     font-size: 14px;
     color: #EE3F15;
+  }
+  .tg-check-group .md-check-list .md-check-list-item.is-selected .md-icon {
+    fill: #3B7BFF;
+  }
+  .tg-check-group .md-check-list .md-check-list-item.disabled .md-icon {
+    fill: #EDF2FB;
   }
 
   .tg-check-group .tg-check-group-input {
@@ -210,5 +213,8 @@
   .tg-check-group .tg-muted {
     font-size: 12px;
     color: #767A8C;
+  }
+  .tg-check-group .md-field-item.disabled .tg-muted {
+    color: #C4C9D9; 
   }
 </style>

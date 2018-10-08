@@ -69,4 +69,15 @@
   .tg-popup .van-modal {
     background: rgba(19,21,45,0.50);
   }
+  .tg-popup .van-popup {
+    transform: translate(-50%,-50%);
+  }
+  .tg-popup .van-popup--bottom,.tg-popup .van-popup--top {
+    transform: translate(-50%,0);
+  }
+  .tg-popup .van-popup--left,.tg-popup .van-popup--right {
+    transform: translate(0,-50%);
+    height: 100%;
+    width: 60%;
+  }
 </style>

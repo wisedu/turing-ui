@@ -19,7 +19,7 @@
 			v-model="value2"
 			show-action
 		>
-			<div slot="actionBtn" style="padding: 0 17px;color: #3B7BFF;" @click="handleClick">取消</div>
+			<div slot="actionBtn" style="padding: 0 17px;color: #3B7BFF;" @click="handleClick">搜索</div>
 		</tg-search>
 	</div>
 </template>

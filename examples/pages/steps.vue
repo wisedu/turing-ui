@@ -1,19 +1,24 @@
 <template>
 	<div class="demo-steps">
 		<p >标准用法:</p>
+		<tg-steps :active="active" :options="options"></tg-steps>
+		<tg-steps :active="active" :options="options" is-card></tg-steps>
+		<p >step自定义用法:</p>
 		<tg-steps 
 			:active="active"
-			:options="options">
+			:options="options"
+			customized>
 			<div slot-scope="{ option }">
 				<div class="tg-step-title">{{option.title}}</div>
 				<div class="tg-step-desc">{{option.desc}}</div>
-				<div class="time" v-if='option.time'>{{option.time}}</div>
+				<div class="tg-step-default-time" v-if='option.time'>{{option.time}}</div>
 			</div>
 		</tg-steps>
 		<tg-button @click="handleChange">下一步</tg-button>
 		<tg-steps 
 			:active="active"
 			:options="options1"
+			customized
 			is-card>
 			<div slot-scope="{ option }">
 				<div class="tg-step-title">{{option.title}}</div>
@@ -32,11 +37,11 @@ export default {
 	data() {
 		return {
 			value: true,
-			active: 0,
+			active: 1,
 			options: [
 				{title: '一级审批已通过', desc: '已通过你的报销审批',time:'00:45 18.01.02'},
 				{title: '二级审批已通过', desc: '已通过你的报销审批',time:'00:45 18.01.03'},
-				{title: '已提交申请', desc: '等待上级的审核',time:'20:45 12.30',status: 'error'},
+				{title: '已提交申请', desc: '等待上级的审核',time:'20:45 12.30'},
 				{title: '公示', desc: '等待流程办结',time:''}
 			],
 			options1: [
@@ -76,10 +81,5 @@ export default {
 	font-size: 12px;
 	color: #C4C9D9;
 	padding: 5px 17px;
-}
-.time {
-	display: inline-block;
-	background: #EDF2FB;
-	padding: 2px 5px;
 }
 </style>

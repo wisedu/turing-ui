@@ -6,7 +6,7 @@
       :min="min"
       :max="max"
       :disabled="disabled"
-      :read-only="readOnly"
+      :read-only="readOnly||disabled"
       :is-integer="isInteger"
       :default-value="defaultValue"
       @change="handerChange"
@@ -99,11 +99,18 @@
     margin: 0 3px;
     padding: 0 3px;
   }
+  .tg-stepper .md-stepper.disabled .md-stepper-number {
+    background: #F7FAFF;
+  }
   .tg-stepper .md-stepper .md-stepper-number input {
     width: 24px;
     height: 24px;
     line-height: 24px;
     font-size: 14px;
     background: #EDF2FB;
+  }
+  .tg-stepper .md-stepper.disabled .md-stepper-number input {
+    color: #C4C9D9;
+    background: #F7FAFF;
   }
 </style>

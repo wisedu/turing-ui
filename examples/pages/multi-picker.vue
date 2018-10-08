@@ -8,6 +8,7 @@
 			v-model="value"
 			:options="options"
 			@confirm="handleConfirm"
+			@cancel="handleCancel"
 		>
 		</tg-multi-picker>
 	</div>
@@ -16,16 +17,15 @@
 export default {
 	data() {
 		return {
-			value: ['bbb'],
+			value: ['aaa','bbb','mmm'],
 			options: [
-				{value: 'aaa', label: '未按时到到维修地点'},
-				{value: 'bbb', label: '维修师傅态度恶劣'},
-				{value: 'ccc', label: '多收费'},
-				{value: 'ddd', label: '未维修成功'},
-				{value: 'eee', label: '选项五'},
-				{value: 'fff', label: '选项六'},
-				{value: 'ggg', label: '选项七'},
-				{value: 'hhh', label: '选项八'}
+				{value: 'aaa', label: '未按时到到维修地点',desc:"描述文字字段可根据具体场景更改",disabled:false},
+				{value: 'bbb', label: '维修师傅态度恶劣',desc:"描述文字字段可根据具体场景更改",disabled:false},
+				{value: 'ccc', label: '多收费',desc:"描述文字字段可根据具体场景更改",disabled:true},
+				{value: 'ddd', label: '未维修成功',desc:"描述文字字段可根据具体场景更改",disabled:false},
+				{value: 'eee', label: '选项五',desc:"描述文字字段可根据具体场景更改",disabled:false},
+				{value: 'fff', label: '选项六',desc:"描述文字字段可根据具体场景更改",disabled:false},
+				{value: 'ggg', label: '选项七',desc:"描述文字字段可根据具体场景更改",disabled:false},
 			]
 		}
 	},
@@ -36,6 +36,9 @@ export default {
 	},
 	methods: {
 		handleConfirm(value){
+			console.log(value)
+		},
+		handleCancel(value){
 			console.log(value)
 		}
 	},

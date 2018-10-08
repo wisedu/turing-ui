@@ -10,8 +10,9 @@
 		<tg-button type="primary" @click="handleClick('left')">左侧弹出</tg-button>
 		<tg-popup :position="position" v-model="visible">
 			<tg-cell-group class="scroll">
-				<tg-cell v-for="n in 10" :key="n" :value="String(n)"></tg-cell>
+				<tg-cell v-for="n in 20" :key="n" :value="String(n)"></tg-cell>
 			</tg-cell-group>
+			<tg-button block @click="visible=false" type="primary" plain>返回</tg-button>	
 		</tg-popup>
 	</div>
 </template>
@@ -71,8 +72,7 @@ export default {
 .van-popup--center {
 	width: 60%;
 }
-.demo-popup .van-popup--left, .demo-popup .van-popup--right {
-	width: 60%;
-	height: 100%;
+.demo-popup .tg-popup .van-popup--left,.demo-popup .tg-popup .van-popup--right {
+	/*width: 100%;*/
 }
 </style>

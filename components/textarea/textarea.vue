@@ -12,7 +12,7 @@
       @blur="handleBlur"
       @change="handerChange">
     </textarea>
-    <div class="tg-textarea-count" v-if="autosize || indicator || count>=Math.floor(maxlength*0.9)"><span :class="'tg-textarea-count-'+countType">{{count}}</span>/{{maxlength}}</div>
+    <div class="tg-textarea-count" v-if="indicator || count>=Math.floor(maxlength*0.9)"><span :class="'tg-textarea-count-'+countType">{{count}}</span>/{{maxlength}}</div>
   </div>
 </template>
 <script>
@@ -23,7 +23,7 @@
         inputValue: this.value,
         isfocus: false,
         count: 0,
-        easycheck: true, //
+        easycheck: true, 
         maxlengthCheck: this.maxlength
       }
     },

@@ -8,37 +8,36 @@
 			:readonly="readonly"
 			:disabled="disabled"
 			:autofocus="autofocus"
+			:autocomplete="autocomplete"
 			:clearable="clearable"
 			:eye="eye"
 			@blur="handleBlur"
 		></tg-input>
+		<tg-input v-model="value" :maxlength="9" type="text" placeholder="maxlength=9"></tg-input>
 		<p style="padding:8px">value: {{value}}</p>
 		<tg-cell-group title="原生type类型">
 			<tg-cell title="text类型" customized solid >
 				<tg-input 
-					v-model="value"
-					placeholder="请输入"
+					v-model="value_text"
 					type="textarea">
 				</tg-input>
 			</tg-cell>
 			<tg-cell title="number类型" customized solid >
 				<tg-input 
-					v-model="value"
-					placeholder="请输入"
+					v-model="value_number"
 					type="number">
 				</tg-input>
 			</tg-cell>
 			<tg-cell title="password类型" customized solid >
 				<tg-input 
-					v-model="value"
-					placeholder="请输入"
-					type="password">
+					v-model="value_password"
+					type="password"
+					:eye="eye">
 				</tg-input>
 			</tg-cell>
 			<tg-cell title="date类型" customized solid >
 				<tg-input 
-					v-model="value"
-					placeholder="请输入"
+					v-model="value_date"
 					type="date">
 				</tg-input>
 			</tg-cell>
@@ -48,7 +47,12 @@
 				<tg-input 
 					v-model="value0"
 					placeholder="请输入"
-					type="text">
+					type="password"
+					validate
+					clearable
+					eye
+					:validateInfo="validateInfo1"
+					@blur="validateHandle">
 				</tg-input>
 			</tg-cell>
 			<tg-cell title="手机号" customized solid required>
@@ -80,10 +84,10 @@
 			</tg-cell>
 		</tg-cell-group>
 		<tg-cell-group title="无title模式及校验">
-			<tg-cell customized>
+			<tg-cell customized required>
 				<tg-input 
 					v-model="value2"
-					placeholder="真实姓名"
+					placeholder="请输入真实姓名"
 					validateFail
 					type="text">
 				</tg-input>
@@ -93,9 +97,16 @@
 					v-model="value3"
 					placeholder="真实名字"
 					column
-					autofocus
+					type="text">
+				</tg-input>
+			</tg-cell>
+			<tg-cell customized>
+				<tg-input 
+					v-model="value3"
+					placeholder="真实名字"
+					column
+					clearable
 					:validateInfo="validateInfo"
-					:type="type"
 					@blur="handleBlur">
 				</tg-input>
 			</tg-cell>
@@ -130,6 +141,10 @@ export default {
 			value2: '',
 			value3: '张三',
 			value4: '',
+			value_text:'我是text',
+			value_number: '20180925',
+			value_password: '111111',
+			value_date: '2018-09-27',
 			placeholder: '请输入...',
 			type: 'text',
 			readonly: false,
@@ -138,14 +153,25 @@ export default {
 			autofocus: false,
 			autocomplete: true,
 			clearable: false,
-			eye: false,
-			validateInfo: ''
+			eye: {open: false},
+			validateInfo: '',
+			validateInfo1: ''
 		}
 	},
 	methods: {
 		handleBlur(val,e){
-			console.log(val)
-			this.validateInfo = !this.value3.length?'名称校验失败，请重新输入':'';
+			if(!val){
+				this.validateInfo = '输入名称不能为空'
+			}else{
+				this.validateInfo = val!=='张三'?'名称校验失败，请重新输入':'';
+			}
+		},
+		validateHandle(val){
+			if(!val){
+				this.validateInfo1 = '输入名称不能为空'
+			}else{
+				this.validateInfo1 = val!=='张三'?'名称校验失败，请重新输入':'';
+			}
 		}
 	},
 	mounted() {
@@ -174,5 +200,8 @@ export default {
 	}
 	.tg-cell-suffix span{
 		margin-left: 10px;
+	}
+	.border-buttom {
+		border-bottom:1px solid #EDF2FB;
 	}
 </style>

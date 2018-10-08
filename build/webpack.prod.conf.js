@@ -32,7 +32,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     library: 'tg',
     libraryTarget: "umd"
   },
-  externals: ["mand-mobile","vue","cube-ui","vant"],
+  externals: ["vue","cube-ui","vant","mand-mobile"],
   plugins: [
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({
@@ -49,7 +49,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     // }),
     // extract css into its own file
     new ExtractTextPlugin({
-      filename: utils.assetsPath('[name].css'),
+      filename: utils.assetsPath('style.css'),
       // Setting the following option to `false` will not extract CSS from codesplit chunks.
       // Their CSS will instead be inserted dynamically with style-loader when the codesplit chunk has been loaded by webpack.
       // It's currently set to `true` because we are seeing that sourcemaps are included in the codesplit bundle as well when it's `false`, 

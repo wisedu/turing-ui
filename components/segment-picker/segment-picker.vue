@@ -6,9 +6,10 @@
       :required="required"
       arrow="arrow-right"
       :align="align"
+      :disabled="disabled"
       @click="onClick"
       customized>
-      <span>{{currentValue}}</span>
+      <span class="tg-segment-picker-value" :class="[{'is-placeholder':!currentValue}]">{{currentValue?currentValue:placeholder}}</span>
       <!-- <i class="tg-icon-clear">X</i> -->
     </tg-cell>
     <tg-popup
@@ -129,6 +130,14 @@
         type: Number,
         default: 59
       },
+      placeholder: {
+        type: String,
+        default: '请输入'
+      },
+      disabled: {
+        type: Boolean,
+        default: false
+      },
       align: String,
       title: String,
       required: Boolean
@@ -160,7 +169,6 @@
               break;
             case 'date':
               box = this.value.split('至');
-              console.log(box)
               if(box.length !== 2 || !box[0] || !box[1]) throw("Invalid Date");
               box[0] = new Date(box[0]);
               box[1] = new Date(box[1]);
@@ -297,4 +305,7 @@
   .tg-segment-picker .tg-picker-confirm:active {
     color: #306CE7;
   }
+  .tg-segment-picker .tg-segment-picker-value.is-placeholder {
+    color: #C4C9D9;
+  } 
 </style>

@@ -23,8 +23,7 @@
     },
     data() {
       return {
-        currentValue: this.value,
-        background: '#FFFFFF'
+        currentValue: this.value
       }
     },
     watch: {
@@ -44,6 +43,10 @@
       showAction: {
         type: Boolean,
         default: false
+      },
+      background: {
+        type: String,
+        default: '#FFFFFF'
       }
     },
     methods: {

@@ -71,21 +71,6 @@
 .tg-checkbox .cube-checkbox.cube-checkbox_disabled {
   color: #C4C9D9;
 }
-.tg-checkbox .cube-checkbox_disabled .cube-checkbox-ui {
-  background-color: #EDF2FB;
-}
-.tg-checkbox .cube-checkbox_checked.cube-checkbox_disabled .cube-checkbox-ui {
-  background-color: #FFFFFF;
-}
-.tg-checkbox .cube-checkbox_checked .cube-checkbox-ui i {
-  color: #3B7BFF;
-}
-.tg-checkbox .cube-checkbox_disabled .cube-checkbox-ui i {
-  color: #EDF2FB;
-}
-.tg-checkbox .cube-checkbox_disabled .cube-checkbox-ui:before {
-  color: transparent;
-}
 .tg-checkbox .cube-checkbox-ui:before {
   color: #C4C9D9;
 }
@@ -97,18 +82,23 @@
 .tg-checkbox .cube-checkbox-wrap {
   min-height: 50px;
 }
-.cubeic-round-border:before {
+.tg-checkbox .cubeic-round-border:before {
   font-family: "iconfont" !important;
-  font-size: 16px;
+  font-size: 18px;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
-  content: "\e62b";
+  -moz-osx-font-smoothing: grayscale;
+  content:"\e645";
+  transform: scale(1);
 }
-.cubeic-right:before {
-  font-family: "iconfont" !important;
-  font-size: 16px;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  content: "\e611";
- }
+.tg-checkbox .cubeic-round-border>i {
+  display: none;
+}
+.tg-checkbox .cube-checkbox_checked .cubeic-round-border:before {
+  content:"\e648";
+  color: #3B7BFF;
+}
+.tg-checkbox .cube-checkbox_disabled .cubeic-round-border:before {
+  color: #EDF2FB;
+}
 </style>

@@ -6,9 +6,10 @@
       :required = "required"
       arrow = "arrow-right"
       :align = "align"
+      :disabled="disabled"
       @click = "onClick"
       customized>
-        <div class="tg-multi-picker-value">{{currentValue}}</div>
+        <div class="tg-multi-picker-value" :class="[{'is-placeholder':!currentValue}]">{{currentValue?currentValue:placeholder}}</div>
     </tg-cell>
     <tg-popup
       v-model = "isTabPickerShow"
@@ -25,7 +26,7 @@
       ></md-popup-title-bar> 
       <tg-check-group
         v-model = "selected"
-        :options = "options"
+        :options = "correctOptions"
         icon-position = "right"
       ></tg-check-group>
     </tg-popup>
@@ -42,8 +43,8 @@
     data() {
       return {
         isTabPickerShow: false,
-        maskClosable: true,
-        selected: this.value
+        selected: this.value,
+        correctOptions: this.options
       }
     },
     watch: {
@@ -55,7 +56,16 @@
       currentValue (){
         var self = this;
         var labels = [];
+        var ids = [];
         this.options.forEach(function(opt){
+          ids.push(opt.value);
+        });
+        this.value.forEach(function(item){
+          if(ids.indexOf(item) === -1){
+            self.correctOptions.unshift({"value":item,"label":item});
+          }
+        });
+        this.correctOptions.forEach(function(opt){
           if(self.value.indexOf(opt.value) > -1){
             labels.push(opt.label);
           }
@@ -85,7 +95,21 @@
       },
       options: {
         type: Array,
-        default: []
+        default: () => {
+          return []
+        }
+      },
+      placeholder: {
+        type: String,
+        default: '请选择'
+      },
+      maskClosable: {
+        type: Boolean,
+        default: true
+      },
+      disabled: {
+        type: Boolean,
+        default: false
       }
     },
     methods: {
@@ -105,7 +129,7 @@
         this.isTabPickerShow = false;
         var result = [];
         var self = this;
-        this.options.forEach(function(opt){
+        this.correctOptions.forEach(function(opt){
           if(self.selected.indexOf(opt.value) > -1){
             result.push(opt);
           }
@@ -148,4 +172,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
   }
+  .tg-multi-picker .tg-multi-picker-value.is-placeholder {
+    color: #C4C9D9;
+  } 
 </style>

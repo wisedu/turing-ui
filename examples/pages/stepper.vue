@@ -23,7 +23,7 @@
 			<tg-cell title="不允许输入" solid customized align="right">
 				<tg-stepper 
 					v-model="value"
-					read-only>
+					readOnly>
 				</tg-stepper>
 			</tg-cell>
 			<tg-cell title="步进(step=10)" solid customized align="right">
@@ -44,7 +44,7 @@
 					default-value="5">
 				</tg-stepper>
 			</tg-cell>
-			<tg-cell title="禁用" solid customized align="right">
+			<tg-cell title="禁用" solid customized align="right" disabled>
 				<tg-stepper 
 					v-model="value"
 					disabled>

@@ -34,10 +34,10 @@
 		</div>
 		<p >button样式类为块元素（block）:</p>
 		<div class="group">
-			<tg-button block>button类型</tg-button>
+			<tg-button block>标准按钮</tg-button>
 		</div>
 		<div class="group">
-			<tg-button size="small" block>button类型</tg-button>
+			<tg-button size="small" block>小按钮</tg-button>
 		</div>
 		<p >button无圆角（square）:</p>
 		<div class="group">

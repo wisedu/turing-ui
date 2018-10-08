@@ -3,6 +3,7 @@
 		<p >标准用法:</p>
 		<tg-switch 
 			v-model="value"
+			disabled
 			@change="handleChange"
 		></tg-switch>
 		<tg-cell-group>
@@ -35,12 +36,11 @@ export default {
 			value: true,
 			value1: false,
 			value2: true,
-			readonly: false
 		}
 	},
 	watch: {
 		value(newValue){
-			// console.log(newValue)
+			console.log(newValue)
 		}
 	},
 	methods: {

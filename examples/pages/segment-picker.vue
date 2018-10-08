@@ -3,9 +3,8 @@
 		<p >时间选择器:</p>
 		<tg-segment-picker
 			title="请假时间"
-			required
-			type="datetime"
 			v-model="value"
+			placeholder="我是占位符"
 			@confirm="handleConfirm"
 		>
 		</tg-segment-picker>
@@ -31,14 +30,14 @@
 export default {
 	data() {
 		return {
-			value: '2018-8-30 11:59',
+			value: '',
 			value1: '2018-8-30 至 2018-9-30',
 			value2: '09:00 至 10:00',
 		}
 	},
 	watch: {
 		value(newValue){
-			// console.log(newValue)
+			console.log(newValue)
 		}
 	},
 	methods: {
