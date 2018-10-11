@@ -2,6 +2,7 @@
   <div class="tg-multi-picker">
     <tg-cell
       solid
+      name="muti-picker"
       :title = "title"
       :required = "required"
       arrow = "arrow-right"
@@ -153,7 +154,7 @@
   }
   .tg-multi-picker .md-popup-title-bar .title-bar-left {
     font-size: 14px;
-    color: #13152D;
+    color: #43454F;
   }
   .tg-multi-picker .md-popup-title-bar .title-bar-title {
     font-size: 18px;

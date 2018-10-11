@@ -1,5 +1,5 @@
 <template>
-  <div class="tg-radio" :class="{'is-horizontal':horizontal,'is-button': type == 'button','is-required':required&&title}">
+  <div class="tg-radio" :class="[{'is-horizontal':horizontal,'is-button': type == 'button','is-required':required&&title}]">
     <div class="tg-radio-title" v-if="title">{{title}}</div>
     <md-radio
       v-model="currentValue"

@@ -13,11 +13,15 @@
 </template>
 
 <script>
+  import Vue from 'vue'
   import { Selector } from 'mand-mobile'
+  import { createAPI, DatePicker } from 'cube-ui'
+  createAPI(Vue,DatePicker,[],true);
   export default {
     name: "tg-selector",
     components: {
-      [Selector.name]: Selector
+      [Selector.name]: Selector,
+      [DatePicker.name]: DatePicker
     },
     data() {
       return {
@@ -53,11 +57,10 @@
       }
     },
     mounted () {
-      
+      console.log(this.$createDatePicker)
     },
     methods: {
       onSelectorConfirm(obj) {
-        console.log(obj);
         this.$emit('pickerValue', obj )
       }
     }
@@ -68,12 +71,12 @@
 		height: 60px;
 	}
 	.tg-selector .md-popup-title-bar .title-bar-left{
-		font-size: 15px;
-		color:#303146;
+		font-size: 14px;
+		color:#43454F;
 	}
 	.tg-selector .md-popup-title-bar .title-bar-right{
-		font-size: 15px;
-		color: #699AFF;
+		font-size: 14px;
+		color: #3B7BFF;
 	}
 	.tg-selector .md-popup-title-bar .title-bar-title{
 		font-size: 18px;
@@ -83,10 +86,12 @@
     font-size: 18px;
   }
   .tg-selector .md-field-item .md-field-item-content{
-    font-size: 15px;
+    font-size: 14px;
+
   }
   .tg-selector .md-radio.across .md-field .md-field-item.md-radio-item .md-field-item-inner{
-    padding: 10px;
+    padding: 8px 0;
+    min-height: 34px;
   }
   .tg-selector .md-popup-title-bar:before{
     -webkit-transform: scaleY(1) translateY(100%);
@@ -101,6 +106,9 @@
     height: 1px;
   }
   .tg-selector .md-selector .md-field-item.selected{
-    color: #4380FF!important;
+    color: #3B7BFF!important;
+  }
+  .tg-selector .md-field-item {
+    color: #43454F;
   }
 </style>

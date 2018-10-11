@@ -190,4 +190,7 @@
   .tg-cell .tg-radio .md-radio .md-field-item.md-radio-item .md-field-item-inner{
     padding: 0;
   }
+  .tg-cell .md-field-item.has-arrow::after {
+    position: static;
+  }
 </style>

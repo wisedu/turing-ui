@@ -63,8 +63,8 @@
         "icon": ""
       },
       {
-        "path": "/segment-picker",
-        "name": "SegmentPicker",
+        "path": "/datetime-picker",
+        "name": "DatetimePicker",
         "icon": ""
       },
       {
@@ -75,6 +75,11 @@
       {
         "path": "/picker",
         "name": "Picker",
+        "icon": ""
+      },
+      {
+        "path": "/selector",
+        "name": "Selector",
         "icon": ""
       },
       {

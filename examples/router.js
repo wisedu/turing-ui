@@ -12,9 +12,11 @@ import Cell from './pages/cell.vue'
 import Stepper from './pages/stepper.vue'
 import Button from './pages/button.vue'
 import Progress from './pages/progress.vue'
-import SegmentPicker from './pages/segment-picker.vue'
+import DatetimePicker from './pages/datetime-picker.vue'
 import MultiPicker from './pages/multi-picker.vue'
 import ActionSheet from './pages/action-sheet.vue'
+import Picker from './pages/picker.vue'
+import Selector from './pages/selector.vue'
 import Picker from './pages/picker.vue'
 import Steps from './pages/steps.vue'
 import Popup from './pages/popup.vue'
@@ -90,9 +92,9 @@ export default new Router({
     component: Progress
   },
   {
-    path: '/segment-picker',
-    name: 'SegmentPicker',
-    component: SegmentPicker
+    path: '/datetime-picker',
+    name: 'DatetimePicker',
+    component: DatetimePicker
   },
   {
     path: '/multi-picker',
@@ -108,6 +110,11 @@ export default new Router({
     path: '/picker',
     name: 'Picker',
     component: Picker
+  },
+  {
+    path: '/selector',
+    name: 'Selector',
+    component: Selector
   },
   {
     path: '/steps',

@@ -55,7 +55,7 @@
       },
     },
     mounted () {
-      console.log(this.pickerData)
+      //
     },
     methods: {
       onTabPickerConfirm(selected) {

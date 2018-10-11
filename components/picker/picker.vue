@@ -1,50 +1,96 @@
 <template>
   <div class="tg-picker">
-    <md-picker
-      ref="picker"
-      v-model="isPickerShow"
-      :data="pickerData"
-	    :default-index="defaultIndex"
-      @confirm="onPickerConfirm"
-      @change="onChange"
-      is-cascade
-      :cols="cols"
-	    ok-text="确定"
-	    cancel-text = "取消"
+    <tg-cell
+      name="picker"
+      solid
       :title="title"
-	    mask-closable
-    ></md-picker>
+      :required="required"
+      arrow="arrow-right"
+      :align="align"
+      :disabled="disabled"
+      @click="onClick"
+      customized>
+      <span class="tg-picker-value" :class="[{'is-placeholder':!currentValue}]">{{currentValue?currentValue:placeholder}}</span>
+    </tg-cell>
+    <tg-popup
+      v-model = "isPickerShow"
+      :mask-closable = "maskClosable"
+      @maskClick = "$_onMaskClose"
+      position = "bottom">
+      <md-popup-title-bar
+        :title = "titleBar"
+        :ok-text = "okText"
+        :cancel-text = "cancelText"
+        @cancel="handleCancel"
+        @confirm="handleConfirm"
+      ></md-popup-title-bar> 
+      <md-picker
+        ref="picker"
+        :data="options"
+        :cols="cols"
+        :default-index="defaultIndex"
+        is-view
+        :is-cascade="isCascade"
+        @change="onChange"
+      ></md-picker>
+    </tg-popup>
   </div>
 </template>
 
 <script>
-  import { Picker } from 'mand-mobile'
+  import { Picker, PopupTitleBar } from 'mand-mobile'
   export default {
     name: "tg-picker",
     components: {
-      [Picker.name]: Picker
+      [Picker.name]: Picker,
+      [PopupTitleBar.name]: PopupTitleBar,
     },
     data() {
       return {
-        isPickerShow: false
+        currentValue: this.defaultValue,
+        defaultIndex: [],
+        isPickerShow: false,
+        maskClosable: true,
       }
     },
     watch: {
-      value(val){
-         this.isPickerShow = val
-      },
-      isPickerShow(val){
-        if (!val) {
-          this.$emit('input', val)
-        }
+      options: {
+        handler: function(opts) {
+          this.locateSelectedValue();
+        },
+        deep: true
       }
     },
     props: {
       value: {
+        type: Array,
+        default: []
+      },
+      defaultValue: {
+        type: String,
+        default: ''
+      },
+      title: {
+        type: String,
+        default: ''
+      },
+      required: {
         type: Boolean,
         default: false
       },
-      title: {
+      disabled: {
+        type: Boolean,
+        default: false
+      },
+      align: {
+        type: String,
+        default: 'left'
+      },
+      placeholder: {
+        type: String,
+        default: '请输入'
+      },
+      titleBar: {
         type: String,
         default: ''
       },
@@ -52,84 +98,147 @@
         type: Number,
         default: 1
       },
-      pickerData: {
+      options: {
         type: Array,
-        default: []
+        default: ()=>{
+          return []
+        }
       },
-      defaultIndex: {
-        type: Array,
-        default: []
+      okText: {
+        type: String,
+        default: '确定'
+      },
+      cancelText: {
+        type: String,
+        default: '取消'
+      },
+      isCascade: {
+        type: Boolean,
+        default: false
       }
     },
     mounted () {
-      
+      if(this.options.length && this.value.length){
+        //初始化源数据(options)存在时，初始化显示值（currentValue）
+        var self = this;
+        var arr = [];
+        if(!this.isCascade){
+          // 非级联时
+          this.options.map(function(opt,index){
+            opt.forEach(function(val){
+              if(self.value[index] === val.value){
+                arr.push(val.text)
+              }
+            })
+          });
+        }else{
+          //级联时
+          arr = this.childrenLoop(this.options[0],0,arr);
+        }
+        if(arr.length) this.currentValue = arr.join(',');
+      }
     },
     methods: {
-      onPickerConfirm() {
-        const values = this.$refs[`picker`].getColumnValues()
-        let res = ''
-        values.forEach(value => {
-          value && (res += `${value.text || value.label} `)
-        })
-        console.log(values);
-        var val = values;
-        if(typeof values == "object"){
-          val = JSON.stringify(val);
-        }
-        this.$emit('pickerValue', val )
+      onClick() {
+        this.$emit('onClick');
+        this.locateSelectedValue();
+        this.isPickerShow = true;
+      },
+      handleConfirm() {
+        const values = this.$refs[`picker`].getColumnValues();
+        var resultName = [], resultId = [];
+        var self = this;
+        values.forEach(function(value){
+          resultName.push(value.text);
+          resultId.push(value.value)
+        });
+        this.currentValue = resultName.join(',');
+        this.$emit('input',resultId);
+        this.$emit('confirm', this.currentValue, values);
+        this.isPickerShow = false;
       },
       onChange(columnIndex, itemIndex, value) {
-        console.log(value)
+        this.$emit("change", columnIndex, itemIndex, value);
+      },
+      handleCancel() {
+        this.isPickerShow = false;
+      },
+      $_onMaskClose() {
+        this.isPickerShow = false;
+      },
+      /**
+       * 定位选中值：首先需要校验源数据（options）与 当前值（value）是否都有值
+       */
+      locateSelectedValue() {
+        if(this.options.length && this.value.length){
+          var self = this;
+          if(!this.isCascade){
+            this.options.map(function(opt,index){
+              opt.forEach(function(val,idx){
+                if(self.value[index] === val.value){
+                  self.defaultIndex.push(idx)
+                }
+              })
+            })
+          }else{
+            var count = 0; 
+            var children = this.options[0];
+            this.childrenLoop(children,count);
+          }
+        }
+      },
+      /**
+       * 循环级联源数据，获取初始值（value）定位
+       * @children 循环数据子项组
+       * @count children数据对应列
+       * @text 选中项对应的文本，即返回值
+       */
+      childrenLoop(children,count,text) {
+        var self = this;
+        var txt = text || [];
+        if(children && children.length){
+          children.map(function(child,idx){
+            if(self.value[count] === child.value){
+              self.defaultIndex.push(idx);
+              txt.push(child.text);
+              count++;
+              children = child.children;
+              txt=self.childrenLoop(children,count,txt);
+            }
+          })
+        }
+        return txt;
       }
-      
     }
   }
 </script>
 <style lang="css">
   .tg-picker .md-popup-title-bar{
-		height: 60px;
-	}
-  /* .tg-picker .md-picker-column{
-    height: 230px !important;
+    height: 60px;
   }
-  .tg-picker .md-picker-column-masker{
-    height: 85px !important;
+  .tg-picker .md-popup-title-bar .title-bar-left{
+    font-size: 14px;
+    color:#43454F ;
   }
-  .tg-picker .md-picker-column-masker.bottom{
-    height: 112px !important;
-  } */
-	.tg-picker .md-popup-title-bar .title-bar-left{
-		font-size: 15px;
-		color:#303146;
-	}
-	.tg-picker .md-popup-title-bar .title-bar-right{
-		font-size: 15px;
-		color: #699AFF;
-	}
-	.tg-picker .md-popup-title-bar .title-bar-title{
-		font-size: 18px;
+  .tg-picker .md-popup-title-bar .title-bar-right{
+    font-size: 14px;
+    color: #3B7BFF;
+  }
+  .tg-picker .md-popup-title-bar .title-bar-title{
+    font-size: 18px;
     color: #13152D;
-	}
-  .tg-picker .md-field-item .md-field-item-label .md-field-item-title{
-    font-size: 18px;
-  }
-  .tg-picker .md-field-item .md-field-item-content{
-    font-size: 18px;
   }
   .tg-picker .md-picker-column .md-picker-column-container .md-picker-column-list .md-picker-column-item ul.column-list li.column-item{
-    /* border-top: 2px solid #F6F9FD; */
     font-size: 15px;
-    /* height: 40px !important;
-    line-height: 40px !important; */
     color:#43454F;
   }
   .tg-picker .md-picker-column .md-picker-column-container .md-picker-column-masker.bottom:after{
-    /* background:none; */
     height: 1px;
+    background-color: #EDF2FB;
   }
   .tg-picker .md-picker-column .md-picker-column-container .md-picker-column-masker.top:before{
-    /* background:none; */
     height: 1px;
+    background-color: #EDF2FB;
   }
   .tg-picker .md-popup-title-bar:before{
     -webkit-transform: scaleY(1) translateY(100%);
@@ -137,4 +246,12 @@
     background: #F6F9FD;
     height: 1px;
   }
+  .tg-picker .md-field-item-content.left, .tg-picker .tg-picker-value {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .tg-picker .tg-picker-value.is-placeholder {
+    color: #C4C9D9;
+  } 
 </style>
