@@ -27,11 +27,10 @@ import TgProgress from '../components/progress/progress.vue'
 import TgCheckbox from '../components/checkbox/checkbox.vue'
 import TgCheckGroup from '../components/check-group/check-group.vue'
 import TgDatetimePicker from '../components/datetime-picker/datetime-picker.vue'
-import TgMultiPicker from '../components/multi-picker/multi-picker.vue'
+import TgSelect from '../components/select/select.vue'
 import TgActionSheet from '../components/action-sheet/action-sheet.vue'
 import TgPicker from '../components/picker/picker.vue'
-import TgSelector from '../components/selector/selector.vue'
-import TgTabPicker from '../components/tabPicker/tabPicker.vue'
+import TgAreaPicker from '../components/area-picker/area-picker.vue'
 import TgSteps from '../components/steps/steps.vue'
 import TgPopup from '../components/popup/popup.vue'
 import TgIndexList from '../components/index-list/index-list.vue'
@@ -49,11 +48,10 @@ Vue.component(TgProgress.name, TgProgress);
 Vue.component(TgCheckbox.name, TgCheckbox);
 Vue.component(TgCheckGroup.name, TgCheckGroup);
 Vue.component(TgDatetimePicker.name, TgDatetimePicker);
-Vue.component(TgMultiPicker.name, TgMultiPicker);
+Vue.component(TgSelect.name, TgSelect);
 Vue.component(TgActionSheet.name, TgActionSheet);
 Vue.component(TgPicker.name, TgPicker);
-Vue.component(TgSelector.name, TgSelector);
-Vue.component(TgTabPicker.name, TgTabPicker);
+Vue.component(TgAreaPicker.name, TgAreaPicker);
 Vue.component(TgSteps.name, TgSteps);
 Vue.component(TgPopup.name, TgPopup);
 Vue.component(TgIndexList.name, TgIndexList);

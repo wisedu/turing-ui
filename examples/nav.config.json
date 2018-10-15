@@ -63,23 +63,23 @@
         "icon": ""
       },
       {
-        "path": "/datetime-picker",
-        "name": "DatetimePicker",
-        "icon": ""
-      },
-      {
-        "path": "/multi-picker",
-        "name": "MultiPicker",
-        "icon": ""
-      },
-      {
         "path": "/picker",
         "name": "Picker",
         "icon": ""
       },
       {
-        "path": "/selector",
-        "name": "Selector",
+        "path": "/area-picker",
+        "name": "AreaPicker",
+        "icon": ""
+      },
+      {
+        "path": "/datetime-picker",
+        "name": "DatetimePicker",
+        "icon": ""
+      },
+      {
+        "path": "/select",
+        "name": "Select",
         "icon": ""
       },
       {

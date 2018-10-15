@@ -13,10 +13,10 @@ import Stepper from './pages/stepper.vue'
 import Button from './pages/button.vue'
 import Progress from './pages/progress.vue'
 import DatetimePicker from './pages/datetime-picker.vue'
-import MultiPicker from './pages/multi-picker.vue'
+import Select from './pages/select.vue'
 import ActionSheet from './pages/action-sheet.vue'
 import Picker from './pages/picker.vue'
-import Selector from './pages/selector.vue'
+import AreaPicker from './pages/area-picker.vue'
 import Picker from './pages/picker.vue'
 import Steps from './pages/steps.vue'
 import Popup from './pages/popup.vue'
@@ -97,9 +97,9 @@ export default new Router({
     component: DatetimePicker
   },
   {
-    path: '/multi-picker',
-    name: 'MultiPicker',
-    component: MultiPicker
+    path: '/select',
+    name: 'Select',
+    component: Select
   },
   {
     path: '/action-sheet',
@@ -112,9 +112,9 @@ export default new Router({
     component: Picker
   },
   {
-    path: '/selector',
-    name: 'Selector',
-    component: Selector
+    path: '/area-picker',
+    name: 'AreaPicker',
+    component: AreaPicker
   },
   {
     path: '/steps',

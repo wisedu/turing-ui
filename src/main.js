@@ -16,11 +16,10 @@ import Progress from '../components/progress/progress.vue'
 import Checkbox from '../components/checkbox/checkbox.vue'
 import CheckGroup from '../components/check-group/check-group.vue'
 import DatetimePicker from '../components/datetime-picker/datetime-picker.vue'
-import MultiPicker from '../components/multi-picker/multi-picker.vue'
+import Select from '../components/select/select.vue'
 import ActionSheet from '../components/action-sheet/action-sheet.vue'
 import Picker from '../components/picker/picker.vue'
-import Selector from '../components/selector/selector.vue'
-import TabPicker from '../components/tabPicker/tabPicker.vue'
+import AreaPicker from '../components/area-picker/area-picker.vue'
 import Steps from '../components/steps/steps.vue'
 import Popup from '../components/popup/popup.vue'
 
@@ -40,11 +39,10 @@ const components = [
 	Checkbox,
 	CheckGroup,
 	DatetimePicker,
-	MultiPicker,
+	Select,
 	ActionSheet,
 	Picker,
-	Selector,
-	TabPicker,
+	AreaPicker,
 	Steps,
 	Popup
 ]

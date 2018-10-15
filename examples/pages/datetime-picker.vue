@@ -1,5 +1,5 @@
 <template>
-	<div class="demo-segment-picker">
+	<div class="demo-datetime-picker">
 		<p >时间选择器(yyyy-MM-dd hh:mm):</p>
 		<tg-datetime-picker
 			title="请假时间"
@@ -82,17 +82,17 @@ export default {
 }
 </script>
 <style>
-.demo-segment-picker {
+.demo-datetime-picker {
 	overflow: hidden;
 	background: #EDF2FB;
 }
-.demo-segment-picker>p {
+.demo-datetime-picker>p {
 	padding-left: 17px;
 	font-size: 12px;
 	color: #C4C9D9;
 	padding: 5px 17px;
 }
-.demo-segment-picker .tg-cell {
+.demo-datetime-picker .tg-cell {
 	margin-bottom: 10px;
 }
 </style>

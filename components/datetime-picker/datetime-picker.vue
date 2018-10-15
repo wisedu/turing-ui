@@ -1,7 +1,7 @@
 <template>
   <div class="tg-datetime-picker">
     <tg-cell
-      name="segment-picker"
+      name="datetime-picker"
       solid
       :title="title"
       :required="required"
@@ -10,11 +10,11 @@
       :disabled="disabled"
       @click="onClick"
       customized>
-      <span class="tg-segment-picker-value" :class="[{'is-placeholder':!currentValue}]">{{currentValue?currentValue:placeholder}}</span>
+      <span class="tg-datetime-picker-value" :class="[{'is-placeholder':!currentValue}]">{{currentValue?currentValue:placeholder}}</span>
       <!-- <i class="tg-icon-clear">X</i> -->
     </tg-cell>
     <tg-popup
-      v-model="isTabPickerShow"
+      v-model="isDatetimePickerShow"
       position="bottom"
       :mask-closable="maskClosable"
       @maskClick="$_onMaskClose"
@@ -78,7 +78,7 @@
       return {
         currentValue: this.value,
         typeChecked: this.type === 'dateym'?'custom':this.type,
-        isTabPickerShow: false,
+        isDatetimePickerShow: false,
         maskClosable: true,
         titles: [],
         options: [],
@@ -216,10 +216,10 @@
             this.defaultDate = new Date();
           }
         }
-        this.isTabPickerShow = true
+        this.isDatetimePickerShow = true
       },
       $_onMaskClose() {
-        this.isTabPickerShow = false
+        this.isDatetimePickerShow = false
       },
       $_initialTabAndPicker() {
         if(!this.value){
@@ -303,7 +303,7 @@
           this.currentValue = this.titles[0] + '至' + this.titles[1]; 
         }
         this.$emit('confirm', this.titles, this.options);
-        this.isTabPickerShow = false
+        this.isDatetimePickerShow = false
       },
       /**
        * 区间选择模式的change事件方法
@@ -334,7 +334,7 @@
        */
       handleCancel(){
         this.$emit('cancel');
-        this.isTabPickerShow = false;
+        this.isDatetimePickerShow = false;
       },
       /**
        * 非区间选择模式的confirm的事件
@@ -351,7 +351,7 @@
         }
         this.currentValue = str;
         this.$emit('confirm',values,str);
-        this.isTabPickerShow = false
+        this.isDatetimePickerShow = false
       },
       setFormatDateTime(date,type){
         var type = type || 'date'
@@ -436,7 +436,7 @@
   .tg-segment-picker .tg-picker-confirm:active {
     color: #306CE7;
   }
-  .tg-datetime-picker .tg-segment-picker-value.is-placeholder {
+  .tg-datetime-picker .tg-datetime-picker-value.is-placeholder {
     color: #C4C9D9;
   }
 
