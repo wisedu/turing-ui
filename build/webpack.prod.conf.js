@@ -32,7 +32,14 @@ const webpackConfig = merge(baseWebpackConfig, {
     library: 'tg',
     libraryTarget: "umd"
   },
-  externals: ["vue","cube-ui","vant","mand-mobile"],
+  externals: [
+    {"vue": { 
+        root: 'Vue',
+        commonjs: 'vue',
+        commonjs2: 'vue',
+        amd: 'vue'
+      }
+    },"cube-ui","vant","mand-mobile"],
   plugins: [
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({
