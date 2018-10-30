@@ -30,9 +30,9 @@ const loadSprite = () => {
     return
   }
   const existing = document.getElementById('__TG_MOBILE_SVG_SPRITE_NODE__')
-  const mountNode = document.body
+  const mountNode = document.head;
   if (!existing) {
-    mountNode.insertAdjacentHTML('afterbegin', renderSvgSprite())
+    mountNode.insertAdjacentHTML('beforeend', renderSvgSprite())
   }
 }
 
