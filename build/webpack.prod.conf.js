@@ -39,7 +39,7 @@ const webpackConfig = merge(baseWebpackConfig, {
         commonjs2: 'vue',
         amd: 'vue'
       }
-    },"cube-ui","vant","mand-mobile"],
+    }],
   plugins: [
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({
