@@ -120,7 +120,7 @@
   }
   .tg-action-sheet .cube-action-sheet-content {
     max-height: 300px;
-    overflow: scroll;
+    overflow-y: auto;
   }
   .tg-action-sheet .cube-action-sheet-space {
     height: 5px;

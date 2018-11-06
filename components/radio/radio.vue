@@ -159,6 +159,9 @@
   }
   .tg-radio .md-field .md-field-content .md-field-item .md-field-item-inner:before {
     background-color: #EDF2FB;
+    height: 1px;
+    -webkit-transform: scaleY(1) translateY(100%);
+    transform: scaleY(1) translateY(100%);
   }
   .tg-radio.is-horizontal .md-field .md-field-content .md-field-item .md-field-item-inner:before {
     display: none;

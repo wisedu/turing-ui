@@ -19,7 +19,7 @@
 			@confirm="handleConfirm"
 			@onClick="handleClick('multi')"
 		></tg-picker>
-	  <p>picker选择器级联多选</p>
+	  <p>picker选择器级联多选(数据格式1)</p>
 		<tg-picker
 			v-model="cascadeValue"
 			title="级联多选-地区"
@@ -31,6 +31,15 @@
 			@confirm="handleConfirm"
 			@onClick="handleClick('cascade')"
 		></tg-picker>
+		<p>picker选择器级联多选（数据格式2）</p>
+<!-- 		<tg-picker
+			v-model="cascadeValue1"
+			title="级联多选-地区"
+			:cols="2"
+			format-switch
+			:options="cascadeOptions1"
+			is-cascade
+		></tg-picker> -->
 	</div>
 </template>
 <script>
@@ -40,19 +49,64 @@ export default {
 	data() {
 		return {
 			// 独立多选 源数据
-			singleValue: [],
+			singleValue: ['005'],
 			singleOptions: [column1],
-			defaultValue: '',
+			defaultValue: '卡尔',
 
 			// 独立多选 源数据
-			multiValue: ['卡尔','爆发'],
+			multiValue: ['005','103'],
 			multiOptions: [column1,column2],
-			defaultValue1: '卡尔,爆发',
+			defaultValue1: '卡尔,爆发,萨满',
 
 			//级联多选-地区
 			cascadeValue: ["330000","331100","331122"],
 			cascadeOptions: district,
 			defaultValue2: '浙江省,丽水市,缙云县',
+
+			//级联多选-数据格式2
+			cascadeValue1: [],
+			cascadeOptions1: [{
+				"text": "基本信息维护",
+				"id": "1",
+				"parentid": "-1",
+				"value": "$2.3"
+			},
+			{
+				"id": "2",
+				"parentid": "1",
+				"text": "新增",
+				"value": "$2.3"
+			}, {
+				"id": "3",
+				"parentid": "1",
+				"text": "删除",
+				"value": "$2.3"
+			}, {
+				"id": "4",
+				"parentid": "1",
+				"text": "编辑",
+				"value": "$2.3"
+			}, {
+				"id": "5",
+				"parentid": "1",
+				"text": "上传附件",
+				"value": "$2.3"
+			},  {
+				"id": "11",
+				"text": "信息历史查询",
+				"parentid": "-1",
+				"value": "$2.3"
+			}, {
+				"id": "7",
+				"parentid": "11",
+				"text": "导出",
+				"value": "$2.3"
+			}, {
+				"id": "8",
+				"text": "附件",
+				"parentid": "11",
+				"value": "$2.3"
+			}]
 		}
 	},
 	methods: {

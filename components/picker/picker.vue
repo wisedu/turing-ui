@@ -115,9 +115,17 @@
       isCascade: {
         type: Boolean,
         default: false
+      },
+      formatSwitch: {
+        type: Boolean,
+        default: false
       }
     },
     mounted () {
+      if(this.formatSwitch){
+        var data = this.toTreeData(this.options,"-1",{ukey:"id", pkey:'parentid', toCKey:'children'});
+        console.log(data)
+      }
       if(this.options.length && this.value.length){
         //初始化源数据(options)存在时，初始化显示值（currentValue）
         var self = this;
@@ -208,6 +216,22 @@
           })
         }
         return txt;
+      },
+      toTreeData(data, parent_id, options) {
+        let opt = options || {ukey:"id", pkey:'parent_id', toCKey:'children'}
+        var tree = [];
+        var temp;
+        for (var i = 0; i < data.length; i++) {
+          if (data[i][opt.pkey] == parent_id || data[i][opt.ukey] === data[i][opt.pkey]) {
+            var obj = data[i];
+            temp = this.toTreeData(data, data[i][opt.ukey], opt);
+            if (temp.length > 0) {
+              obj[opt.toCKey] = temp;
+            }
+            tree.push(obj);
+          }
+        }
+        return tree;
       }
     }
   }
@@ -235,15 +259,19 @@
   .tg-picker .md-picker-column .md-picker-column-container .md-picker-column-masker.bottom:after{
     height: 1px;
     background-color: #EDF2FB;
+    -webkit-transform: scaleY(1) translateY(100%);
+    transform: scaleY(1) translateY(100%);
   }
   .tg-picker .md-picker-column .md-picker-column-container .md-picker-column-masker.top:before{
     height: 1px;
     background-color: #EDF2FB;
+    -webkit-transform: scaleY(1) translateY(100%);
+    transform: scaleY(1) translateY(100%);
   }
   .tg-picker .md-popup-title-bar:before{
     -webkit-transform: scaleY(1) translateY(100%);
     transform: scaleY(1) translateY(100%);
-    background: #F6F9FD;
+    background: #EDF2FB;
     height: 1px;
   }
   .tg-picker .md-field-item-content.left, .tg-picker .tg-picker-value {

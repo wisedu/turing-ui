@@ -228,9 +228,6 @@
   .tg-select .md-popup-title-bar {
     height: 60px;
   }
-  .tg-select .md-popup-title-bar:before {
-    background-color: #EDF2FB;
-  }
   .tg-select .md-popup-title-bar .title-bar-left {
     font-size: 14px;
     color: #43454F;
@@ -273,5 +270,11 @@
   }
   .tg-select.is-normal .single-select .md-radio .md-field .md-field-item.md-radio-item.selected {
     color: #3B7BFF;
+  }
+  .tg-select .md-popup-title-bar:before, .tg-select .md-field .md-field-content .md-field-item .md-field-item-inner:before, .tg-select  .md-field .md-field-content .md-input-item-container:before {
+    background-color: #EDF2FB;
+    height: 1px;
+    -webkit-transform: scaleY(1) translateY(100%);
+    transform: scaleY(1) translateY(100%);
   }
 </style>
