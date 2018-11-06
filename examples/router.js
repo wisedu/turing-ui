@@ -21,6 +21,7 @@ import Picker from './pages/picker.vue'
 import Steps from './pages/steps.vue'
 import Popup from './pages/popup.vue'
 import IndexList from './pages/index-list.vue'
+import Container from './pages/container.vue'
 
 
 Vue.use(Router)
@@ -130,6 +131,11 @@ export default new Router({
     path: '/index-list',
     name: 'IndexList',
     component: IndexList
+  },
+  {
+    path: '/container',
+    name: 'Container',
+    component: Container
   }
   ]
 })

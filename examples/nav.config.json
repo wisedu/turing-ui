@@ -103,5 +103,15 @@
         "icon": ""
       }
     ]
+  },
+  {
+    "title": "辅助组件",
+    "list": [
+      {
+        "path": "/container",
+        "name": "Container",
+        "icon": ""
+      }
+    ]
   }
 ]

@@ -22,6 +22,7 @@ import Picker from '../components/picker/picker.vue'
 import AreaPicker from '../components/area-picker/area-picker.vue'
 import Steps from '../components/steps/steps.vue'
 import Popup from '../components/popup/popup.vue'
+import Container from '../components/container/container.vue'
 
 loadSprite();
 const components = [
@@ -44,7 +45,8 @@ const components = [
 	Picker,
 	AreaPicker,
 	Steps,
-	Popup
+	Popup,
+	Container
 ]
 
 const install = function(Vue, config = {}) {
