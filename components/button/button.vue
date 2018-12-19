@@ -1,6 +1,5 @@
 <template>
     <van-button 
-      :type="type"
       :tag="tag"
       :size="size"
       :native-type="nativeType"
@@ -11,6 +10,7 @@
       :square="square"
       @click="handleClick"
       class="tg-button"
+      :class="['tg-btn-' + type]"
     ><slot>{{ text }}</slot></van-button>
 </template>
 <script>
@@ -105,13 +105,25 @@
   .tg-button.van-button:active::before {
     opacity: 0.35;
   }
-  .tg-button.van-button--primary {
+  .tg-button.tg-btn-primary {
     background-color: #3B7BFF;
-    border-color: #3B7BFF;; 
+    border-color: #3B7BFF;
+    color: #FFFFFF;
   }
-  .tg-button.van-button.van-button--primary:before {
-    background-color: #003EA8;
-    border-color: #003EA8; 
+  .tg-button.tg-btn-success {
+    background-color: #17BF6A;
+    border-color: #17BF6A;
+    color: #FFFFFF;
+  }
+  .tg-button.tg-btn-warning {
+    background-color: #FF9900;
+    border-color: #FF9900;
+    color: #FFFFFF;
+  }
+  .tg-button.tg-btn-danger {
+    background-color: #EE3F15;
+    border-color: #EE3F15;
+    color: #FFFFFF;
   }
   .tg-button.van-button--disabled {
     background-color: #C4C9D9;
@@ -125,11 +137,16 @@
   .tg-button.van-button--plain {
     background-color: #FFFFFF;
   }
-  .tg-button.van-button--plain.van-button--primary {
+  .tg-button.van-button--plain.tg-btn-primary {
     color: #3B7BFF;
   }
-  .tg-button.van-button.van-button--plain.van-button--primary:before {
-    background-color: #E6F0FF;
-    border-color: #E6F0FF;
+  .tg-button.van-button--plain.tg-btn-success {
+    color: #17BF6A;
+  }
+  .tg-button.van-button--plain.tg-btn-warning {
+    color: #FF9900;
+  }
+  .tg-button.van-button--plain.tg-btn-danger {
+    color: #EE3F15;
   }
 </style>

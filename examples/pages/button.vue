@@ -9,6 +9,23 @@
 			<tg-button type="primary">默认按钮</tg-button>
 			<tg-button type="primary" disabled>按钮disabled</tg-button>
 		</div>
+		<p >颜色:</p>
+		<div class="group">
+			<tg-button type="primary">primary</tg-button>
+			<tg-button type="primary" disabled>primary</tg-button>
+		</div>
+		<div class="group">
+			<tg-button type="success">success</tg-button>
+			<tg-button type="success" disabled>success</tg-button>
+		</div>
+		<div class="group">
+			<tg-button type="warning">warning</tg-button>
+			<tg-button type="warning" disabled>warning</tg-button>
+		</div>
+		<div class="group">
+			<tg-button type="danger">danger</tg-button>
+			<tg-button type="danger" disabled>danger</tg-button>
+		</div>
 		<p >小按钮（size='small'）:</p>
 		<div class="group">
 			<tg-button size="small">小型按钮</tg-button>
@@ -25,6 +42,18 @@
 		<div class="group">
 			<tg-button type="primary" plain>默认按钮</tg-button>
 			<tg-button type="primary" plain disabled>按钮disabled</tg-button>
+		</div>
+		<div class="group">
+			<tg-button type="success" plain>默认按钮</tg-button>
+			<tg-button type="success" plain disabled>按钮disabled</tg-button>
+		</div>
+		<div class="group">
+			<tg-button type="warning" plain>默认按钮</tg-button>
+			<tg-button type="warning" plain disabled>按钮disabled</tg-button>
+		</div>
+		<div class="group">
+			<tg-button type="danger" plain>默认按钮</tg-button>
+			<tg-button type="danger" plain disabled>按钮disabled</tg-button>
 		</div>
 		<p >button原生类型（nativeType）:</p>
 		<div class="group">
