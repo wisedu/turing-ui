@@ -1,23 +1,44 @@
 <template>
   <div class="tg-picker">
-    <tg-cell
-      name="picker"
-      solid
-      :title="title"
-      :required="required"
-      arrow="arrow-right"
-      :align="align"
-      :disabled="disabled"
-      @click="onClick"
-      customized>
-      <span class="tg-picker-value" :class="[{'is-placeholder':!currentValue}]">{{currentValue?currentValue:placeholder}}</span>
-    </tg-cell>
-    <tg-popup
-      v-model = "isPickerShow"
-      :mask-closable = "maskClosable"
-      @maskClick = "$_onMaskClose"
-      position = "bottom">
+    <template v-if="selector">
+      <tg-cell
+        name="picker"
+        solid
+        :title="title"
+        :required="required"
+        arrow="arrow-right"
+        :align="align"
+        :disabled="disabled"
+        @click="onClick"
+        customized>
+        <span class="tg-picker-value" :class="[{'is-placeholder':!currentValue}]">{{currentValue?currentValue:placeholder}}</span>
+      </tg-cell>
+      <tg-popup
+        v-model = "isPickerShow"
+        :mask-closable = "maskClosable"
+        @maskClick = "$_onMaskClose"
+        position = "bottom">
+        <md-popup-title-bar
+          :title = "titleBar"
+          :ok-text = "okText"
+          :cancel-text = "cancelText"
+          @cancel="handleCancel"
+          @confirm="handleConfirm"
+        ></md-popup-title-bar> 
+        <md-picker
+          ref="picker"
+          :data="formatSwitch?treeData:options"
+          :cols="cols"
+          :default-index="defaultIndex"
+          is-view
+          :is-cascade="isCascade"
+          @change="onChange"
+        ></md-picker>
+      </tg-popup>
+    </template>
+    <template v-else>
       <md-popup-title-bar
+        v-if="toolbar"
         :title = "titleBar"
         :ok-text = "okText"
         :cancel-text = "cancelText"
@@ -26,14 +47,14 @@
       ></md-popup-title-bar> 
       <md-picker
         ref="picker"
-        :data="options"
+        :data="formatSwitch?treeData:options"
         :cols="cols"
-        :default-index="defaultIndex"
+        :default-index="defaultValue"
         is-view
         :is-cascade="isCascade"
         @change="onChange"
       ></md-picker>
-    </tg-popup>
+    </template>
   </div>
 </template>
 
@@ -51,6 +72,7 @@
         defaultIndex: [],
         isPickerShow: false,
         maskClosable: true,
+        treeData: []
       }
     },
     watch: {
@@ -64,12 +86,15 @@
     props: {
       value: {
         type: Array,
-        default: []
+        default: function(){
+          return []
+        }
       },
-      defaultValue: {
-        type: String,
-        default: ''
+      selector: {
+        type: Boolean,
+        default: true
       },
+      defaultValue: [Array, String],
       title: {
         type: String,
         default: ''
@@ -119,12 +144,17 @@
       formatSwitch: {
         type: Boolean,
         default: false
+      },
+      toolbar: {
+        type: Boolean,
+        default: true
       }
     },
     mounted () {
       if(this.formatSwitch){
+        // 数据转换
         var data = this.toTreeData(this.options,"-1",{ukey:"id", pkey:'parentid', toCKey:'children'});
-        console.log(data)
+        this.treeData = [data];
       }
       if(this.options.length && this.value.length){
         //初始化源数据(options)存在时，初始化显示值（currentValue）
@@ -169,6 +199,7 @@
         this.$emit("change", columnIndex, itemIndex, value);
       },
       handleCancel() {
+        this.$emit("cancel");
         this.isPickerShow = false;
       },
       $_onMaskClose() {

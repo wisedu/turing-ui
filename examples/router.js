@@ -22,6 +22,7 @@ import Steps from './pages/steps.vue'
 import Popup from './pages/popup.vue'
 import IndexList from './pages/index-list.vue'
 import Container from './pages/container.vue'
+import Badge from './pages/badge.vue'
 
 
 Vue.use(Router)
@@ -136,6 +137,11 @@ export default new Router({
     path: '/container',
     name: 'Container',
     component: Container
+  },
+  {
+    path: '/badge',
+    name: 'Badge',
+    component: Badge
   }
   ]
 })

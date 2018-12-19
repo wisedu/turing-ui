@@ -67,13 +67,13 @@
       <tg-cell
         title="标题"
         customized>
-        <div> 内容自定义插槽</div>
+        <div style="color:blue"> 内容自定义插槽</div>
       </tg-cell>
       <tg-cell
         title="标题"
         value="右侧内容图标插槽">
         <svg class="icon" aria-hidden="true" slot="right" >
-          <use xlink:href="#plus"></use>
+          <use xlink:href="#radio"></use>
         </svg>
       </tg-cell>
     </tg-cell-group>
