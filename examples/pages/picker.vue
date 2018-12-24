@@ -32,14 +32,45 @@
 			@onClick="handleClick('cascade')"
 		></tg-picker>
 		<p>picker选择器级联多选（数据格式2）</p>
-<!-- 		<tg-picker
+		<tg-picker
 			v-model="cascadeValue1"
 			title="级联多选-地区"
 			:cols="2"
 			format-switch
 			:options="cascadeOptions1"
+			@confirm="handleConfirm"
 			is-cascade
-		></tg-picker> -->
+		></tg-picker>
+
+		<p>原子组件方式</p>
+		<tg-picker
+			:selector="false"
+			:options="singleOptions"
+			:default-value="defaultIndex"
+			:toolbar="false"
+			@confirm="handleConfirm"
+			@cancel="handleCancel"
+			@change="handleChange"
+		></tg-picker>
+		<tg-picker
+			:selector="false"
+			:cols="2"
+			:default-value="defaultIndexs"
+			:options="multiOptions"
+			@confirm="handleConfirm"
+			@cancel="handleCancel"
+			@change="handleChange"
+		></tg-picker>
+		<tg-picker
+			:selector="false"
+			:cols="3"
+			:options="cascadeOptions"
+			:default-value="defaultIndexCascade"
+			is-cascade
+			@confirm="handleConfirm"
+			@cancel="handleCancel"
+			@change="handleChange"
+		></tg-picker>
 	</div>
 </template>
 <script>
@@ -64,23 +95,23 @@ export default {
 			defaultValue2: '浙江省,丽水市,缙云县',
 
 			//级联多选-数据格式2
-			cascadeValue1: [],
+			cascadeValue1: ["$2.0","$2.3"],
 			cascadeOptions1: [{
 				"text": "基本信息维护",
 				"id": "1",
 				"parentid": "-1",
-				"value": "$2.3"
+				"value": "$2.0"
 			},
 			{
 				"id": "2",
 				"parentid": "1",
 				"text": "新增",
-				"value": "$2.3"
+				"value": "$2.1"
 			}, {
 				"id": "3",
 				"parentid": "1",
 				"text": "删除",
-				"value": "$2.3"
+				"value": "$2.2"
 			}, {
 				"id": "4",
 				"parentid": "1",
@@ -90,23 +121,32 @@ export default {
 				"id": "5",
 				"parentid": "1",
 				"text": "上传附件",
-				"value": "$2.3"
+				"value": "$2.4"
 			},  {
 				"id": "11",
 				"text": "信息历史查询",
 				"parentid": "-1",
-				"value": "$2.3"
+				"value": "$2.5"
 			}, {
 				"id": "7",
 				"parentid": "11",
 				"text": "导出",
-				"value": "$2.3"
+				"value": "$2.6"
 			}, {
 				"id": "8",
 				"text": "附件",
 				"parentid": "11",
-				"value": "$2.3"
-			}]
+				"value": "$2.7"
+			},{
+				"id": "9",
+				"text": "xxx",
+				"parentid": "8",
+				"value": "$2.8"
+			}],
+			// 非selector模式下的picker单列
+			defaultIndex: [3],
+			defaultIndexs: [1,2],
+			defaultIndexCascade: [3,0,2]
 		}
 	},
 	methods: {
@@ -121,8 +161,13 @@ export default {
 			}else if(key === 'cascade'){
 				this.cascadeOptions = district;
 			}
+		},
+		handleChange(columnIndex, itemIndex, value){
+			console.log(columnIndex, itemIndex, value)
+		},
+		handleCancel(){
+			console.log('取消')
 		}
-
 	},
 	watch: {
 		singleValue(val){

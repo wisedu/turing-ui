@@ -9,6 +9,7 @@
 			:disabled="disabled"
 			:maxlength="maxlength"
 			:autosize="autosize"
+			:validateFail="validateFail"
 			@focus="handleFocus"
 			@blur="handleBlur"
 			@change="handleChange"
@@ -18,6 +19,24 @@
 			v-model="value"
 			:placeholder="placeholder"
 			autosize
+		></tg-textarea>
+		<p >只读:</p>
+		<tg-textarea 
+			v-model="readonlyValue"
+			:placeholder="placeholder"
+			readonly
+		></tg-textarea>
+		<p >禁用:</p>
+		<tg-textarea 
+			v-model="disabledValue"
+			:placeholder="placeholder"
+			disabled
+		></tg-textarea>
+		<p >必填:</p>
+		<tg-textarea 
+			v-model="requiredValue"
+			:placeholder="placeholder"
+			required
 		></tg-textarea>
 		<p >字数统计:</p>
 		<tg-textarea 
@@ -31,36 +50,39 @@
 			:indicator="false"
 		></tg-textarea>
 		<tg-cell-group title="左右结构">
-			<tg-cell title="文本标题" customized baseline solid required>
-				<tg-textarea 
-					v-model="value3"
-					placeholder="固定高度"
-					validateFail
-				></tg-textarea>
-			</tg-cell>
-			<tg-cell title="文本标题" customized baseline solid required>
-				<tg-textarea 
-					v-model="value3"
-					placeholder="自适应高度"
-					autosize
-					:indicator="false"
-				></tg-textarea>
-			</tg-cell>
+			<tg-textarea 
+				v-model="value3"
+				title="横向文本标题"
+				isView
+			></tg-textarea>
+			<tg-textarea 
+				v-model="value3"
+				title="横向文本标题"
+				placeholder="自适应高度"
+				isView
+				autosize
+				required
+				validateFail
+				:indicator="false"
+			></tg-textarea>
 		</tg-cell-group>
 		<tg-cell-group title="下上结构">
-			<tg-cell title="文本标题" customized column required>
-				<tg-textarea 
-					v-model="value3"
-					placeholder="固定高度"
-				></tg-textarea>
-			</tg-cell>
-			<tg-cell title="文本标题" customized column required>
-				<tg-textarea 
-					v-model="value3"
-					placeholder="自适应高度"
-					autosize
-				></tg-textarea>
-			</tg-cell>
+			<tg-textarea 
+				v-model="value3"
+				title="纵向文本标题"
+				isView
+				direction='vertical'
+			></tg-textarea>
+			<tg-textarea 
+				v-model="value3"
+				title="纵向文本标题"
+				placeholder="自适应高度"
+				isView
+				direction='vertical'
+				autosize
+				required
+				validateFail
+			></tg-textarea>
 		</tg-cell-group>
 	</div>
 </template>
@@ -77,7 +99,11 @@ export default {
 			maxlength: 100,
 			disabled: false,
 			autofocus: false,
-			autosize: false
+			autosize: false,
+			validateFail: false,
+			readonlyValue: '只读文本',
+			disabledValue: '禁用文本',
+			requiredValue: '必填文本'
 		}
 	},
 	methods: {

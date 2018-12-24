@@ -2,6 +2,12 @@
 	<div class="demo-badge">
 		<p >标准用法:</p>
 		<div class="demo-badge-container">
+			<tg-badge value="12">徽章</tg-badge>
+		</div>
+		<div class="demo-badge-container">
+			<tg-badge :value="12" is-dot>徽章</tg-badge>
+		</div>
+		<div class="demo-badge-container">
 			<tg-badge value="12">徽章1</tg-badge>
 			<tg-badge :value="12" :max="10">徽章2</tg-badge>
 			<tg-badge value="new">徽章3</tg-badge>
@@ -12,6 +18,12 @@
 			<tg-badge value="12" type="success">Success</tg-badge>
 			<tg-badge value="12" type="warning">Warning</tg-badge>
 			<tg-badge value="12" type="danger">Danger</tg-badge>
+		</div>
+		<div class="demo-badge-container">
+			<tg-badge is-dot type="primary">Primary</tg-badge>
+			<tg-badge is-dot type="success">Success</tg-badge>
+			<tg-badge is-dot type="warning">Warning</tg-badge>
+			<tg-badge is-dot type="danger">Danger</tg-badge>
 		</div>
 	</div>
 </template>

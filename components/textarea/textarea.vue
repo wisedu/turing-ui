@@ -1,5 +1,5 @@
 <template>
-  <div class="tg-textarea-wraper" :class="{'is-readonly': readonly,'is-disabled': disabled,'is-autosize': autosize,'is-validatefail': validateFail&&!readonly&&!disabled}">
+  <div v-if="!isView" class="tg-textarea-wraper" :class="[{'is-readonly': readonly,'is-disabled': disabled,'is-required':required,'is-autosize': autosize,'is-validatefail': validateFail&&!readonly&&!disabled}]">
     <pre  class="pre" ref="pre" v-if="autosize">{{inputValue.length?inputValue:placeholder}}</pre>
     <textarea
       class="tg-textarea"
@@ -14,6 +14,32 @@
     </textarea>
     <div class="tg-textarea-count" v-if="indicator || count>=Math.floor(maxlength*0.9)"><span :class="'tg-textarea-count-'+countType">{{count}}</span>/{{maxlength}}</div>
   </div>
+  <!-- 与cell组件组合使用 -->
+  <tg-cell v-else class="tg-cell-textarea" 
+            :title="title" 
+            customized 
+            :baseline="direction ==='horizontal'" 
+            :solid="direction ==='horizontal'" 
+            :column="direction ==='vertical'" 
+            :required="required" 
+            :readonly="readonly"
+            :disabled="disabled">
+    <div class="tg-textarea-wraper" :class="[{'is-readonly': readonly,'is-disabled': disabled,'is-autosize': autosize,'is-validatefail': validateFail&&!readonly&&!disabled}]">
+      <pre  class="pre" ref="pre" v-if="autosize">{{inputValue.length?inputValue:placeholder}}</pre>
+      <textarea
+        class="tg-textarea"
+        v-model="inputValue"
+        :placeholder="placeholder"
+        :maxlength="maxlengthCheck"
+        :readonly="readonly"
+        :disabled="disabled"
+        @focus="handleFocus"
+        @blur="handleBlur"
+        @change="handerChange">
+      </textarea>
+      <div class="tg-textarea-count" v-if="indicator || count>=Math.floor(maxlength*0.9)"><span :class="'tg-textarea-count-'+countType">{{count}}</span>/{{maxlength}}</div>
+    </div>
+  </tg-cell>
 </template>
 <script>
   export default {
@@ -68,6 +94,22 @@
         default: false
       },
       validateFail: {
+        type: Boolean,
+        default: false
+      },
+      isView: {
+        type: Boolean,
+        default: false
+      },
+      direction: {
+        type: String,
+        default: 'horizontal'
+      },
+      title: {
+        type: String,
+        default: ''
+      },
+      required: {
         type: Boolean,
         default: false
       }
@@ -130,6 +172,18 @@
     min-height: 40px;
     height: calc(100% - 53px);
   }
+  .tg-textarea-wraper.is-required:before {
+    position: absolute;
+    top: 26px;
+    left: 6px;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    z-index: 10;
+    content: "*";
+    font-family: SimSun;
+    font-size: 14px;
+    color: #EE3F15;
+  }
   .pre {
     font-family: monospace;
     font-size: 14px;
@@ -140,7 +194,7 @@
     line-height: 20px;
   }
   .tg-textarea {
-    color: inherit;
+    color: #43454F;
     display: block;
     width: 100%;
     height: 67px;
@@ -153,10 +207,10 @@
   .tg-textarea-wraper.is-validatefail  textarea::-webkit-input-placeholder {
     color: #EE3F15;
   }
-  .tg-textarea-wraper.is-readonly {
+  .tg-textarea-wraper.is-readonly>textarea{
     color: #767A8C;
   }
-  .tg-textarea-wraper.is-disabled,.tg-textarea-wraper .tg-textarea-count-normal{
+  .tg-textarea-wraper.is-disabled>textarea,.tg-textarea-wraper .tg-textarea-count-normal{
     color: #C4C9D9;
   }
   .tg-textarea-count {
@@ -170,5 +224,8 @@
   }
   .tg-textarea-count-error {
     color: #EE3F15;
+  }
+  .tg-cell-textarea.tg-cell.is-baseline.is-require:before, .tg-cell-textarea.tg-cell.is-column.is-require:before {
+    top: 26px;
   }
 </style>
