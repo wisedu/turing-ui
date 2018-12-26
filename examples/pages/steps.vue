@@ -39,7 +39,7 @@ export default {
 			value: true,
 			active: 1,
 			options: [
-				{title: '一级审批已通过', desc: '已通过你的报销审批',time:'00:45 18.01.02'},
+				{title: '一级审批已通过', desc: '已通过你的报销审批',time:'00:45 18.01.02',status:'error'},
 				{title: '二级审批已通过', desc: '已通过你的报销审批',time:'00:45 18.01.03'},
 				{title: '已提交申请', desc: '等待上级的审核',time:'20:45 12.30'},
 				{title: '公示', desc: '等待流程办结',time:''}

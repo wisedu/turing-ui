@@ -132,7 +132,7 @@
     display: inline-block;
   }
   .tg-steps .van-step--vertical.error .van-step__circle-container i::before{
-    content: "\F012";
+    content: "\e632";
     color: #EE3F15;
     display: inline-block;
   }
