@@ -103,6 +103,11 @@
     "title": "列表组件",
     "list": [
       {
+        "path": "/header",
+        "name": "Header",
+        "icon": ""
+      },
+      {
         "path": "/index-list",
         "name": "Index-list",
         "icon": ""

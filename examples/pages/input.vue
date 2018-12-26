@@ -13,7 +13,7 @@
 			:eye="eye"
 			@blur="handleBlur"
 		></tg-input>
-		<tg-input v-model="value" :maxlength="9" type="text" placeholder="maxlength=9"></tg-input>
+		<tg-input v-model="value"></tg-input>
 		<p style="padding:8px">value: {{value}}</p>
 		<tg-cell-group title="原生type类型">
 			<tg-cell title="text类型" customized solid >

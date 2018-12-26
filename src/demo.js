@@ -35,7 +35,9 @@ import TgSteps from '../components/steps/steps.vue'
 import TgPopup from '../components/popup/popup.vue'
 import TgIndexList from '../components/index-list/index-list.vue'
 import TgContainer from '../components/container/container.vue'
-import Badge from '../components/badge/badge.vue'
+import TgBadge from '../components/badge/badge.vue'
+import TgHeader from '../components/header/header.vue'
+// import TgTree from '../components/tree/tree.vue'
 Vue.component(TgInput.name, TgInput);
 Vue.component(TgTextarea.name, TgTextarea);
 Vue.component(TgSwitch.name, TgSwitch);
@@ -58,7 +60,10 @@ Vue.component(TgSteps.name, TgSteps);
 Vue.component(TgPopup.name, TgPopup);
 Vue.component(TgIndexList.name, TgIndexList);
 Vue.component(TgContainer.name, TgContainer);
-Vue.component(Badge.name, Badge);
+Vue.component(TgBadge.name, TgBadge);
+Vue.component(TgHeader.name, TgHeader);
+// Vue.component(TgTree.name, TgTree);
+
 
 Vue.config.productionTip = false
 

@@ -126,13 +126,7 @@
     color: #FFFFFF;
   }
   .tg-button.van-button--disabled {
-    background-color: #C4C9D9;
-    color: #EDF2FB;
     border-color: #C4C9D9;
-  }
-  .tg-button.van-button--default.van-button--disabled,.tg-button.van-button.van-button--plain.van-button--disabled {
-    background-color: #FFFFFF;
-    color: #E9EAEC;
   }
   .tg-button.van-button--plain {
     background-color: #FFFFFF;

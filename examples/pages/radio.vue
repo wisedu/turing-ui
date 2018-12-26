@@ -5,8 +5,10 @@
 			v-model="value"
 			:options="data"
 			icon-position="left"
-			hasInputOption
-			inputOptionPlaceholder="输入其他答案">
+            hasInputOption
+            inputOptionPlaceholder="输入其他答案"
+			title="标题"
+			required>
 		</tg-radio>
 		<p >label内容自定义:<span>（当前值: {{value}}）</span></p>
 		<tg-radio
@@ -50,7 +52,7 @@
 export default {
 	data() {
 		return {
-			value: 'c',
+			value: 'a',
 			data: [
 				{text: '选项1',value:'a'}, 
 				{text: '选项2',value:'b'}, 

@@ -36,7 +36,6 @@ export default {
   },
   computed: {
     content() {
-      console.log(this.$slots)
       if (this.isDot) return;
       const value = this.value;
       const max = this.max;
