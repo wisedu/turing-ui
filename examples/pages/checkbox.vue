@@ -70,4 +70,7 @@ export default {
 	color: #C4C9D9;
 	padding: 5px 17px;
 }
+.demo-checkbox .tg-checkbox {
+	box-shadow: inset 0 -1px 0 0 #EDF2FB;
+}
 </style>

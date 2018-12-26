@@ -162,7 +162,6 @@
     color: #43454F;
     background-color: #fff;
     padding: 17px 17px 10px 17px;
-    box-shadow: inset 0 -1px 0 0 #EDF2FB;
   }
   .tg-textarea-wraper.is-autosize textarea{
     position: absolute;

@@ -1,7 +1,6 @@
 <template>
 	<div class="demo-textarea">
 		<p >标准用法:</p>
-		<tg-textarea v-model="value"></tg-textarea>
 		<tg-textarea 
 			v-model="value"
 			:placeholder="placeholder"
