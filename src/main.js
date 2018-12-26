@@ -24,6 +24,7 @@ import Steps from '../components/steps/steps.vue'
 import Popup from '../components/popup/popup.vue'
 import Container from '../components/container/container.vue'
 import Badge from '../components/badge/badge.vue'
+import Header from '../components/header/header.vue'
 
 loadSprite();
 const components = [
@@ -48,7 +49,8 @@ const components = [
 	Steps,
 	Popup,
 	Container,
-	Badge
+	Badge,
+	Header
 ]
 
 const install = function(Vue, config = {}) {
@@ -63,4 +65,4 @@ if (typeof window !== 'undefined' && window.Vue) {
 	install(window.Vue);
 };
 
-export default Object.assign({version: '0.0.19'}, {install, ...components});
+export default Object.assign({version: '0.0.23'}, {install, ...components});
