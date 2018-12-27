@@ -350,7 +350,7 @@
           str = this.$refs[`datetimePicker`].getFormatDate('yyyy-MM');
         }
         this.currentValue = str;
-        this.$emit('confirm',values,str);
+        this.$emit('confirm',str,values);
         this.isDatetimePickerShow = false
       },
       setFormatDateTime(date,type){
