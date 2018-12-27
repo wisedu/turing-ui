@@ -158,6 +158,7 @@
     padding: 8px 0;
   }
   .tg-radio .md-field .md-field-content .md-field-item .md-field-item-inner:before {
+    width: calc(100% - 52px);
     background-color: #EDF2FB;
     height: 1px;
     -webkit-transform: scaleY(1) translateY(100%);
