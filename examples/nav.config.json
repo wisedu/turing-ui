@@ -111,11 +111,6 @@
         "path": "/index-list",
         "name": "Index-list",
         "icon": ""
-      },
-      {
-        "path": "/tree",
-        "name": "Tree",
-        "icon": ""
       }
     ]
   },

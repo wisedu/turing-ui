@@ -25,8 +25,6 @@ import Container from './pages/container.vue'
 import Badge from './pages/badge.vue'
 import Header from './pages/header.vue'
 
-import Tree from './pages/tree.vue'
-
 
 Vue.use(Router)
 
@@ -145,11 +143,6 @@ export default new Router({
     path: '/badge',
     name: 'Badge',
     component: Badge
-  },
-  {
-    path: '/tree',
-    name: 'Tree',
-    component: Tree
   },
   {
     path: '/header',
