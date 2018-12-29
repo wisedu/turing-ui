@@ -65,4 +65,4 @@ if (typeof window !== 'undefined' && window.Vue) {
 	install(window.Vue);
 };
 
-export default Object.assign({version: '0.0.23'}, {install, ...components});
+export default Object.assign({version: '0.0.24'}, {install, ...components});
