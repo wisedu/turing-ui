@@ -486,9 +486,6 @@
 		font-size: 18px;
     color: #13152D;
 	}
-  .tg-area-picker .md-field-item .md-field-item-label .md-field-item-title{
-    font-size: 18px;
-  }
   .tg-area-picker .md-field-item .md-field-item-content{
     font-size: 15px;
   }

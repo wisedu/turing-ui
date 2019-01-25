@@ -112,7 +112,7 @@
     color: #43454F;
   }
   .tg-cell .md-field-item .md-field-item-inner {
-    min-height: 34px;
+    min-height: 50px;
     padding: 8px 17px;
   }
   .tg-cell .md-field-item .md-field-item-extra {

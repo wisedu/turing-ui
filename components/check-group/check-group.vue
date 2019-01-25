@@ -111,7 +111,7 @@
     color: #3B7BFF;
   }
   .tg-check-group .md-check-list .md-field-item .md-field-item-inner {
-    min-height: 34px;
+    min-height: 50px;
     padding: 8px 0;
     box-shadow: inset 0 -1px 0 0 #EDF2FB;
   }

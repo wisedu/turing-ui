@@ -154,7 +154,7 @@
     opacity: 1;
   }
   .tg-radio .md-field .md-field-item.md-radio-item .md-field-item-inner {
-    min-height: 34px;
+    min-height: 50px;
     padding: 8px 0;
   }
   .tg-radio .md-field .md-field-content .md-field-item .md-field-item-inner:before {
