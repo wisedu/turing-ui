@@ -37,8 +37,8 @@ export default {
   computed: {
     content() {
       if (this.isDot) return;
-      const value = this.value;
-      const max = this.max;
+      var value = this.value;
+      var max = this.max;
       if (typeof value === 'number' && typeof max === 'number') {
         return max < value ? `${max}+` : value;
       }

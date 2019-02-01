@@ -66,7 +66,7 @@
 </template>
 <script>
   import { Popup, PopupTitleBar, ScrollView, Radio } from 'mand-mobile'
-  const noop = () => {};
+  var noop = () => {};
   export default {
     name: "tg-select",
     components: {

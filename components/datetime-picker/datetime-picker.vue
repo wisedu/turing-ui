@@ -65,7 +65,7 @@
 </template>
 <script>
   import { Popup, Tabs, DatePicker, PopupTitleBar } from 'mand-mobile'
-  const currentYear = new Date().getFullYear();
+  var currentYear = new Date().getFullYear();
   export default {
     name: "tg-datetime-picker",
     components: {
@@ -228,7 +228,9 @@
           var box = [];
           switch(this.type){
             case 'datetime': 
-              var datetime = new Date(this.value);
+              // 解决ios不支持new Date('2019-02-01 16:00')的问题
+              var valCopy = this.value;
+              var datetime = new Date(valCopy.replace(/\-/g,'/'));
               if(datetime == "Invalid Date") throw("Invalid Date");
               var date = this.setFormatDateTime(datetime);
               var time = this.setFormatDateTime(datetime,'time');
@@ -241,8 +243,8 @@
             case 'date':
               box = this.value.split('至');
               if(box.length !== 2 || !box[0] || !box[1]) throw("Invalid Date");
-              box[0] = new Date(box[0]);
-              box[1] = new Date(box[1]);
+              box[0] = new Date(box[0].replace(/\-/g,'/'));
+              box[1] = new Date(box[1].replace(/\-/g,'/'));
               if(box[0] == "Invalid Date" || box[1] == "Invalid Date") throw("Invalid Date");
               this.titles = [box[0],box[1]];
               this.options = [
@@ -309,16 +311,18 @@
        * 区间选择模式的change事件方法
        */
       segmentPickerChange(columnIndex, itemIndex, value){
+        console.log(columnIndex, itemIndex, value)
         var tab_0_title,tab_1_title;
         var opts = this.options;
         if(this.type === 'datetime'){
-          tab_0_title = this.$refs[`dateSegmentPicker`][0].getFormatDate('yyyy-MM-dd');
+          tab_0_title = this.$refs[`dateSegmentPicker`][0].getFormatDate('yyyy/MM/dd');
           tab_1_title = this.$refs[`dateSegmentPicker`][1].getFormatDate('hh:mm');
+          console.log(tab_0_title,tab_1_title)
           opts[0].currentDate = new Date(tab_0_title + ' ' + tab_1_title);
           opts[1].currentDate = new Date(tab_0_title + ' ' + tab_1_title);
         }else if(this.type ==='date'){
-          tab_0_title = this.$refs[`dateSegmentPicker`][0].getFormatDate('yyyy-MM-dd');
-          tab_1_title = this.$refs[`dateSegmentPicker`][1].getFormatDate('yyyy-MM-dd');
+          tab_0_title = this.$refs[`dateSegmentPicker`][0].getFormatDate('yyyy/MM/dd');
+          tab_1_title = this.$refs[`dateSegmentPicker`][1].getFormatDate('yyyy/MM/dd');
           opts[0].currentDate = new Date(tab_0_title);
           opts[1].currentDate = new Date(tab_1_title);
         }else{
@@ -340,7 +344,7 @@
        * 非区间选择模式的confirm的事件
        */
       handleConfirm(){
-        const values = this.$refs[`datetimePicker`].getColumnValues();
+        var values = this.$refs[`datetimePicker`].getColumnValues();
         var str = '';
         if(this.type === 'date'){
           str = this.$refs[`datetimePicker`].getFormatDate('yyyy-MM-dd');
@@ -356,13 +360,13 @@
       setFormatDateTime(date,type){
         var type = type || 'date'
         if(type === 'date'){
-          const Y = date.getFullYear();
-          const M = (date.getMonth()+1)>9?(date.getMonth()+1):'0'+(date.getMonth()+1);
-          const D = date.getDate()>9?date.getDate():'0'+date.getDate();
+          var Y = date.getFullYear();
+          var M = (date.getMonth()+1)>9?(date.getMonth()+1):'0'+(date.getMonth()+1);
+          var D = date.getDate()>9?date.getDate():'0'+date.getDate();
           return Y + '年' + M + '月' + D + '日' 
         }else if(type === 'time'){
-          const h = date.getHours()>9?date.getHours():'0'+date.getHours();
-          const m = date.getMinutes()>9?date.getMinutes():'0'+date.getMinutes();
+          var h = date.getHours()>9?date.getHours():'0'+date.getHours();
+          var m = date.getMinutes()>9?date.getMinutes():'0'+date.getMinutes();
           return h + ':' + m
         }
       },

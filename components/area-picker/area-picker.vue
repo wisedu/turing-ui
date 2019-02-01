@@ -64,7 +64,7 @@
 
 <script>
   import { Tabs, Radio } from 'mand-mobile'
-  const noop = () => {};
+  var noop = () => {};
   function compareObjects(object0, object1) {
     let ret = true
 
@@ -221,16 +221,16 @@
           return
         }
         this.isLoading = false
-        const initialIndex = this.lastSelectIndex || this.defaultIndex
+        var initialIndex = this.lastSelectIndex || this.defaultIndex
         this.$_initTabContent()
         this.data.forEach((item, index) => {
-          const temp = {
+          var temp = {
             index: index,
             clickedKey: initialIndex.length > 0 && ~initialIndex[index] ? initialIndex[index] : -1,
             data: item.children,
           }
           this.renderData.push(temp)
-          const currentColumn = this.renderData[index]
+          var currentColumn = this.renderData[index]
           if (initialIndex && initialIndex.length > 0) {
             this.subTitles.push(currentColumn.data[currentColumn.clickedKey].label)
           } else {
@@ -242,7 +242,7 @@
         if (this.data.length === 0) {
           return
         }
-        const initialIndex = this.lastSelectIndex || this.defaultIndex
+        var initialIndex = this.lastSelectIndex || this.defaultIndex
         this.$_walk(initialIndex, this.data)
       },
       $_initAsyncCascadeData() {
@@ -253,21 +253,21 @@
           this.isDataError = err
           return
         }
-        const initialIndex = this.lastSelectIndex || this.defaultIndex
+        var initialIndex = this.lastSelectIndex || this.defaultIndex
         this.$_walk(initialIndex, data, true)
       },
       $_walk(initialIndex, data, isAsync) {
         // recursion cascade or async data with initialIndex
-        const func = () => {
+        var func = () => {
           if (initialIndex && initialIndex.length > 0) {
-            const walk = (err, data) => {
+            var walk = (err, data) => {
               if (err) {
                 this.isLoading = false
                 this.isDataError = err
                 return
               }
               if (this.walkTimes < initialIndex.length) {
-                const temp = initialIndex[this.walkTimes]
+                var temp = initialIndex[this.walkTimes]
                 let rawData = isAsync ? data.options : data
                 rawData.forEach((item, eq, array) => {
                   if (eq === temp) {
@@ -398,8 +398,8 @@
       },
       $_onConfirm() {
         this.isTabPickerShow = false
-        const selectedItem = this.getSelectedItem()
-        const isSelectPart = selectedItem.some(option => {
+        var selectedItem = this.getSelectedItem()
+        var isSelectPart = selectedItem.some(option => {
           return !option
         })
         if (!isSelectPart) {
@@ -422,7 +422,7 @@
         }
         this.currentColumnLock = true
         this.subTitles[this.currentIndex] = value.label
-        const currentColumn = this.renderData[this.currentIndex]
+        var currentColumn = this.renderData[this.currentIndex]
         currentColumn.clickedKey = index
         this.$emit('change', {
           selectTab: this.currentIndex,
@@ -453,7 +453,7 @@
       getSelectedItem() {
         return this.renderData.map((item, index) => {
           if (~item.clickedKey) {
-            const selected = item.data[item.clickedKey]
+            var selected = item.data[item.clickedKey]
             return {
               index: index,
               item: {

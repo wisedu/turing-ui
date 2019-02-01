@@ -183,7 +183,7 @@
         this.isPickerShow = true;
       },
       handleConfirm() {
-        const values = this.$refs[`picker`].getColumnValues();
+        var values = this.$refs[`picker`].getColumnValues();
         var resultName = [], resultId = [];
         var self = this;
         values.forEach(function(value){
