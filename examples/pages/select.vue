@@ -29,16 +29,17 @@ export default {
 	data() {
 		return {
 			value: ['aaa','bbb','mmm'],
-			options: [
-				{value: 'aaa', label: '未按时到到维修地点',desc:"描述文字字段可根据具体场景更改",disabled:false},
-				{value: 'bbb', label: '维修师傅态度恶劣',desc:"描述文字字段可根据具体场景更改",disabled:false},
-				{value: 'ccc', label: '多收费',desc:"描述文字字段可根据具体场景更改",disabled:true},
-				{value: 'ddd', label: '未维修成功',desc:"描述文字字段可根据具体场景更改",disabled:false},
-				{value: 'eee', label: '选项五',desc:"描述文字字段可根据具体场景更改",disabled:false},
-				{value: 'fff', label: '选项六',desc:"描述文字字段可根据具体场景更改",disabled:false},
-				{value: 'ggg', label: '选项七',desc:"描述文字字段可根据具体场景更改",disabled:false},
-			],
-			value_1: 'mmm',
+			options:[],
+			// options: [
+			// 	{value: 'aaa', label: '未按时到到维修地点',desc:"描述文字字段可根据具体场景更改",disabled:false},
+			// 	{value: 'bbb', label: '维修师傅态度恶劣',desc:"描述文字字段可根据具体场景更改",disabled:false},
+			// 	{value: 'ccc', label: '多收费',desc:"描述文字字段可根据具体场景更改",disabled:true},
+			// 	{value: 'ddd', label: '未维修成功',desc:"描述文字字段可根据具体场景更改",disabled:false},
+			// 	{value: 'eee', label: '选项五',desc:"描述文字字段可根据具体场景更改",disabled:false},
+			// 	{value: 'fff', label: '选项六',desc:"描述文字字段可根据具体场景更改",disabled:false},
+			// 	{value: 'ggg', label: '选项七',desc:"描述文字字段可根据具体场景更改",disabled:false},
+			// ],
+			value_1: 'aaa',
 			options_1: [{value:"aaa",text:"选项1"},{value:"bbb",text:"选项2"},{value:"ccc",text:"选项3"},{value:"ddd",text:"选项4"},{value:"eee",text:"选项5"},{value:"fff",text:"选项6"}]
 		}
 	},

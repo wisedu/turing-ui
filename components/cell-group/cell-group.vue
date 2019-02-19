@@ -35,7 +35,7 @@
     padding-left: 17px;
     padding-right: 17px;
   }
-  .tg-cell-group .md-field-content .tg-cell:not(:last-child) .md-field-item-inner {
+  .tg-cell-group>.md-field>.md-field-content>.tg-cell:not(:last-child) .md-field-item-inner {
     box-shadow: inset 0 -1px 0 0 #EDF2FB;
   }
   .tg-cell-group .tg-cell .md-field-item .md-field-item-inner {

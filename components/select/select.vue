@@ -1,7 +1,7 @@
 <template>
   <div class="tg-select" :class="[{'is-normal': !isCheck,'is-check': isCheck}]">
     <tg-cell
-      solid
+      :solid="title?true:false"
       name="multi-select"
       :title = "title"
       :required = "required"
@@ -113,7 +113,7 @@
           });
           return labels.join(',');
         }else{
-          labels = '';
+          labels = self.value;
           this.options.forEach(function(item, index){
             if(item.value == self.value){
               labels = item.text;
@@ -260,7 +260,7 @@
   }
   .tg-select.is-normal .single-select .md-radio.across .md-field .md-field-item.md-radio-item .md-field-item-inner {
     padding: 8px 0;
-    min-height: 34px;
+    min-height: 50px;
   }
   .tg-select.is-normal .single-select .md-field-item .md-field-item-content {
     font-size: 14px;
