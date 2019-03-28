@@ -3,7 +3,7 @@
     <template v-if="selector">
       <tg-cell
         name="picker"
-        solid
+        :solid="title?true:false"
         :title="title"
         :required="required"
         arrow="arrow-right"

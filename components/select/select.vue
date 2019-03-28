@@ -89,6 +89,9 @@
     watch: {
       value(newValue) {
         this.selected = newValue;
+      },
+      options(newOpts) {
+        this.correctOptions = newOpts;
       }
     },
     computed: {
