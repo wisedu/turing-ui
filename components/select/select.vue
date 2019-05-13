@@ -17,6 +17,7 @@
       :mask-closable = "maskClosable"
       @maskClick = "$_onMaskClose"
       position = "bottom"
+      :get-container="getContainer"
     >
       <md-popup-title-bar
         :title = "titleBar"
@@ -181,6 +182,7 @@
         type: Number,
         default: 400
       },
+      getContainer: String
     },
     methods: {
       onClick() {
@@ -228,22 +230,22 @@
     background-color: #13152D;
     opacity: 0.5;
   }
-  .tg-select .md-popup-title-bar {
+  .tg-select .md-popup-title-bar,body .van-popup .md-popup-title-bar {
     height: 60px;
   }
-  .tg-select .md-popup-title-bar .title-bar-left {
+  .tg-select .md-popup-title-bar .title-bar-left,body .van-popup .md-popup-title-bar .title-bar-left {
     font-size: 14px;
     color: #43454F;
   }
-  .tg-select .md-popup-title-bar .title-bar-title {
+  .tg-select .md-popup-title-bar .title-bar-title,body .van-popup .md-popup-title-bar .title-bar-title {
     font-size: 18px;
     color: #13152D;
   }
-  .tg-select .md-popup-title-bar .title-bar-right {
+  .tg-select .md-popup-title-bar .title-bar-right, body .van-popup .md-popup-title-bar .title-bar-right {
     font-size: 14px;
     color: #3B7BFF;
   }
-  .tg-select .tg-check-group {
+  .tg-select .tg-check-group, body .tg-check-group {
     max-height: 300px;
     overflow-y: scroll;
   }
@@ -255,23 +257,23 @@
   .tg-select .tg-select-value.is-placeholder {
     color: #C4C9D9;
   }
-  .tg-select.is-normal .single-select .md-field-item-content.left {
+  .tg-select.is-normal .single-select .md-field-item-content.left,body .md-radio .md-field .md-field-item.md-radio-item .md-field-item-content.left {
     justify-content: center;
   }
-  .tg-select.is-normal .single-select .md-field-item .md-icon {
+  .tg-select.is-normal .single-select .md-field-item .md-icon,body .md-radio .md-field .md-field-item.md-radio-item .md-icon {
     display: none;
   }
-  .tg-select.is-normal .single-select .md-radio.across .md-field .md-field-item.md-radio-item .md-field-item-inner {
+  .tg-select.is-normal .single-select .md-radio.across .md-field .md-field-item.md-radio-item .md-field-item-inner,body .md-radio.across .md-field .md-field-item.md-radio-item .md-field-item-inner{
     padding: 8px 0;
     min-height: 50px;
   }
-  .tg-select.is-normal .single-select .md-field-item .md-field-item-content {
+  .tg-select.is-normal .single-select .md-field-item .md-field-item-content,body .md-field-item .md-field-item-content {
     font-size: 14px;
   }
-  .tg-select.is-normal .single-select .md-field-item {
+  .tg-select.is-normal .single-select .md-field-item, body .md-field-item {
     color: #43454F;
   }
-  .tg-select.is-normal .single-select .md-radio .md-field .md-field-item.md-radio-item.selected {
+  .tg-select.is-normal .single-select .md-radio .md-field .md-field-item.md-radio-item.selected, body .md-radio .md-field .md-field-item.md-radio-item.selected {
     color: #3B7BFF;
   }
   .tg-select .md-popup-title-bar:before, .tg-select .md-field .md-field-content .md-field-item .md-field-item-inner:before, .tg-select  .md-field .md-field-content .md-input-item-container:before {

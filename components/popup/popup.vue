@@ -7,6 +7,7 @@
       :close-on-click-overlay="maskClosable"
       :lock-scroll="lockScroll"
       @click-overlay="maskHandleClick"
+      :get-container="getContainer"
     >
       <slot></slot>
     </van-popup>
@@ -53,7 +54,8 @@
       lockScroll: {
         type: Boolean,
         default: true
-      }
+      },
+      getContainer: String
     },
     mounted () {
       
