@@ -1,6 +1,6 @@
 {
   "name": "tg-ui",
-  "version": "0.0.35",
+  "version": "0.0.37",
   "description": "A fantastic mobile ui lib implement by Vue",
   "author": "[wangyongjian] <[1005934453@qq.com]>",
   "private": false,
@@ -8,7 +8,8 @@
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "lint": "eslint --ext .js,.vue src",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
