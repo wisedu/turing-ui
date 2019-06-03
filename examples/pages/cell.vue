@@ -102,6 +102,7 @@
       <tg-cell
         align="center"
         title="标题"
+        arrow="arrow-right"
         value="内容居中">
       </tg-cell>
       <tg-cell

@@ -121,6 +121,11 @@
         "path": "/container",
         "name": "Container",
         "icon": ""
+      },
+      {
+        "path": "/toast",
+        "name": "Toast",
+        "icon": ""
       }
     ]
   }

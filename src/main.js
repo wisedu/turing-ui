@@ -25,6 +25,8 @@ import Popup from '../components/popup/popup.vue'
 import Container from '../components/container/container.vue'
 import Badge from '../components/badge/badge.vue'
 import Header from '../components/header/header.vue'
+import {Toast} from 'vant'
+
 
 loadSprite();
 const components = [
@@ -50,7 +52,8 @@ const components = [
 	Popup,
 	Container,
 	Badge,
-	Header
+	Header,
+	Toast
 ]
 
 const install = function(Vue, config = {}) {
@@ -60,6 +63,8 @@ const install = function(Vue, config = {}) {
         Vue.component(components[key].name, components[key]);
     });
 };
+
+
 
 if (typeof window !== 'undefined' && window.Vue) {
 	install(window.Vue);

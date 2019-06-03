@@ -37,6 +37,10 @@ import TgIndexList from '../components/index-list/index-list.vue'
 import TgContainer from '../components/container/container.vue'
 import TgBadge from '../components/badge/badge.vue'
 import TgHeader from '../components/header/header.vue'
+
+import { Toast } from 'vant';
+
+
 Vue.component(TgInput.name, TgInput);
 Vue.component(TgTextarea.name, TgTextarea);
 Vue.component(TgSwitch.name, TgSwitch);
@@ -61,6 +65,8 @@ Vue.component(TgIndexList.name, TgIndexList);
 Vue.component(TgContainer.name, TgContainer);
 Vue.component(TgBadge.name, TgBadge);
 Vue.component(TgHeader.name, TgHeader);
+Vue.component(Toast.name, Toast);
+
 
 
 Vue.config.productionTip = false
