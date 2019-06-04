@@ -2,6 +2,12 @@
 
 > tg-ui 移动组件库
 
+## 依赖组件库组件情况
+
+* cube-ui (ActionSheet/Checkbox/IndexList/Input/)
+* mand-mobile@1.6.0 (Tabs/Radio/Field/FieldItem/CheckList/Popup/DatePicker/PopupTitleBar/Picker/ScrollView/Stepper ) 
+* vant@1.6.5  (Button/NavBar/Popup/Progress/Circle/Search/Step/Steps/Switch/Toast)
+
 ## Build Setup
 
 ``` bash

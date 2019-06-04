@@ -63,13 +63,8 @@
   .tg-steps .van-steps--vertical {
     padding-left: 52px;
   }
-  .tg-steps .tg-step {
-    position: relative;
-  }
   .tg-steps .van-icon {
     font-size: 18px;
-    top: 15px;
-    left: -35px;
     background-color: #FFFFFF;
   }
   .tg-steps .van-step--vertical {
@@ -78,48 +73,52 @@
   .tg-steps .van-step--vertical .van-step__line {
     left: -26px;
     background-color: #EDF2FB;
+    width: 1px;
   }
   .tg-steps .van-step .van-step__circle {
     width: 8px;
     height: 8px;
     background-color: #FFFFFF;
     border: 1px solid #C4C9D9;
-    top: 19px;
-    left: -31px;
   }
   .tg-steps .tg-step:last-child .van-step__line {
-    height: 20px;
+    height: 0;
   }
   .tg-steps .tg-step:first-child .van-step__line {
     height: calc(100% - 17px);
     bottom: 0;
     top: initial;
   }
-  .tg-steps .van-step--vertical::after {
-    border-bottom-width: 0;
-  }
   .tg-step-default {
     font-size: 14px;
     color: #43454F;
   }
-
-  .tg-steps .van-step--vertical.van-step--finish .van-step__circle-container i,.tg-steps .van-step--vertical.error .van-step__circle-container i, .tg-steps .van-step--vertical.finish .van-step__circle-container i {
-    font: normal normal normal 18px/1 "iconfont";
-    color: #17BF6A;
+  .tg-steps .van-step--vertical .van-step__circle-container {
+    left: -30px;
+    transform: none;
+  }
+  .tg-step .van-step--vertical::before {
+    left: -26px;
+    background-color: #EDF2FB;
+  }
+  .tg-step:first-child .van-step--vertical::before {
+    width: 0;
+  }
+  .tg-steps .van-step--vertical.van-step--finish .van-step__circle-container, .tg-steps .van-step--vertical.error .van-step__circle-container, .tg-steps .van-step--vertical.van-step--process .van-step__circle-container {
     top: 15px;
     left: -35px;
-    width: 0;
-    height: 0;
+  }
+  .tg-steps .van-step--vertical.van-step--finish .van-step__circle-container i,.tg-steps .van-step--vertical.error .van-step__circle-container i, .tg-steps .van-step--vertical.van-step--process .van-step__circle-container i {
+    font: normal normal normal 18px/1 "iconfont";
+    color: #17BF6A;
+    width: 18px;
+    height: 18px;
     border-width: 0;
   }
   .tg-steps .van-icon {
     font: normal normal normal 18px/1 "iconfont";
   }
   .tg-steps .van-step--vertical.van-step--process .van-icon-checked {
-    font-size: 18px;
-    left: -35px;
-    width: 18px;
-    height: 18px;
     border-radius: 50%;
     background: #FFB500;
   }
@@ -164,16 +163,6 @@
   .tg-steps.is-card .tg-step:last-child .van-step__line {
     height: 57px;
     top: -37px;
-  }
-  .tg-steps.is-card .tg-step .van-step:before {
-    content: '';
-    display: block;
-    position: absolute;
-    border-bottom: 7px solid #EDF2FB;
-    border-top: 7px solid #EDF2FB;
-    border-right: 7px solid #FFFFFF;
-    top: 16px;
-    left: -7px;
   }
   .tg-steps.is-card .van-step__circle-container {
     display: none;
