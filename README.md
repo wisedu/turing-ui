@@ -6,7 +6,7 @@
 
 * cube-ui (ActionSheet/Checkbox/IndexList/Input/)
 * mand-mobile@1.6.0 (Tabs/Radio/Field/FieldItem/CheckList/Popup/DatePicker/PopupTitleBar/Picker/ScrollView/Stepper ) 
-* vant@1.6.5  (Button/NavBar/Popup/Progress/Circle/Search/Step/Steps/Switch/Toast)
+* vant@2.0.0-beta.3  (Button/NavBar/Popup/Progress/Circle/Search/Step/Steps/Switch/Toast)
 
 ## Build Setup
 
