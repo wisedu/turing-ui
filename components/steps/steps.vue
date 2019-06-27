@@ -19,6 +19,8 @@
 </template>
 <script>
   import { Step, Steps } from 'vant';
+  import 'vant/lib/step/style';
+  import 'vant/lib/steps/style';
   export default {
     name: "tg-steps",
     components: {

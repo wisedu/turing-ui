@@ -15,6 +15,7 @@
 </template>
 <script>
   import { Button } from 'vant';
+  // import 'vant/lib/button/style';
   export default {
     name: "tg-button",
     components: {

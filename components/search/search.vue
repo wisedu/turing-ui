@@ -16,6 +16,7 @@
 </template>
 <script>
   import { Search } from 'vant';
+  import 'vant/lib/search/style';
   export default {
     name: "tg-search",
     components: {
@@ -65,6 +66,9 @@
 <style lang="css">
   .tg-search .van-search {
     padding: 9px 17px;
+  }
+  .tg-search .van-search .van-search__content {
+    padding: 0;
   }
   .tg-search .van-search.van-search--show-action {
     padding: 9px 0 9px 17px; 
