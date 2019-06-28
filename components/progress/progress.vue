@@ -24,6 +24,8 @@
 </template>
 <script>
   import { Progress,Circle } from 'vant';
+  import 'vant/lib/progress/style';
+  import 'vant/lib/circle/style';
   export default {
     name: "tg-progress",
     components: {

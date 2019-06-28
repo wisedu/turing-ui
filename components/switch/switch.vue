@@ -10,6 +10,7 @@
 </template>
 <script>
   import { Switch } from 'vant';
+  import 'vant/lib/switch/style';
   export default {
     name: "tg-switch",
     components: {

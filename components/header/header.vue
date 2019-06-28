@@ -18,6 +18,7 @@
 </template>
 <script>
 import { NavBar } from 'vant';
+import 'vant/lib/nav-bar/style';
 export default {
   name: 'tg-header',
   components: {

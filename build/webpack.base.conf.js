@@ -6,6 +6,9 @@ const vueLoaderConfig = require('./vue-loader.conf')
 const PostCompilePlugin = require('webpack-post-compile-plugin')
 const TransformModulesPlugin = require('webpack-transform-modules-plugin')
 
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -38,6 +41,9 @@ module.exports = {
       '@': resolve('src'),
       'cube-ui': 'cube-ui/lib'
     }
+  },
+  performance: {
+    hints: false
   },
   module: {
     rules: [
@@ -95,7 +101,8 @@ module.exports = {
   },
   plugins: [
     new PostCompilePlugin(),
-    new TransformModulesPlugin()
+    new TransformModulesPlugin(),
+    new VueLoaderPlugin()
   ],
   node: {
     // prevent webpack from injecting useless setImmediate polyfill because Vue
