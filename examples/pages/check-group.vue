@@ -73,7 +73,7 @@ export default {
       options: [
         {value: '1', label: '选项一', disabled: false},
         {value: '2', label: '选项三', disabled: false},
-        {value: '3', label: '选项六字数超长长长长长长长长长长长长长长长长长长', disabled: true},
+        {value: '3', label: '选项六字数超长长长长长长长长长长长长长长长长长长', disabled: false},
       ],
       selected1: ['APP设计','WEB设计'],
       options1: [
