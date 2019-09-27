@@ -48,13 +48,16 @@ export default {
 			active: 1,
 			data: [
 				{
-					content: '选项一'
+					content: '选项一',
+					disabled: false
 				},
 				{
-					content: '选项二'
+					content: '选项二',
+					disabled: true
 				},
 				{
-					content: '选项三'
+					content: '选项三',
+					disabled: false
 				}
 			],
 			data1: [

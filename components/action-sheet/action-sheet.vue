@@ -5,27 +5,26 @@
         :mask-closable = "maskClosable"
         position="bottom"
         @mask-click="maskClick">
-        <cube-action-sheet
+        <van-actionsheet
           v-model="visible"
-          :data="data"
+          :actions="getData()"
+          :get-container="getContainer"
+          :overlay="false"
           :title="title"
-          :active="active"
-          :maskClosable="maskClosable"
-          :z-index="zIndex"
-          :cancelTxt="cancelTxt"
+          :close-on-click-overlay="maskClosable" 
+          :cancel-text="cancelTxt"
           @select="handleSelect"
-          @cancel="handleCancel">  
-        </cube-action-sheet>
+          @cancel="handleCancel"
+        />
       </tg-popup>
   </div>
 </template>
 <script>
-  import { ActionSheet } from 'cube-ui';
-  import 'cube-ui/lib/action-sheet/style.css';
+  import { Actionsheet } from 'vant';
   export default {
     name: "tg-action-sheet",
     components: {
-      [ActionSheet.name]: ActionSheet
+      [Actionsheet.name]: Actionsheet
     },
     data() {
       return {
@@ -38,6 +37,7 @@
         this.visible = newValue
       },
       visible(newValue) {
+        console.log(newValue)
         this.$emit("input", newValue)
       }
     },
@@ -50,10 +50,6 @@
         type: Array,
         default: []
       },
-      active: {
-        type: Number,
-        default: -1
-      },
       maskClosable: {
         type: Boolean,
         default: true
@@ -62,17 +58,23 @@
         type: String,
         default: '取消'
       },
-      zIndex: {
-        type: Number,
-        default: 100
-      }
+      getContainer: [String, Function]
     },
     methods: {
+      getData() {
+        return this.data.map(function(item) {
+          item.name = item.content;
+          item.className = item.class;
+          if(item.align) item.className = item.className + " " + item.align
+          return item
+        })
+      },
       handleCancel() {
-        this.$emit("cancel")
+        this.$emit("cancel");
       },
       handleSelect(item, index) {
-        this.$emit("select", item, index)
+        this.$emit("select", item, index);
+        this.visible = false;
       },
       maskClick() {
         this.$emit("mask-click")
@@ -81,49 +83,18 @@
   }
 </script>
 <style lang="css">
-  .tg-action-sheet .cube-popup {
+  .tg-action-sheet .van-actionsheet {
     position: relative;
   }
-  .tg-action-sheet .cube-popup-container {
-    position: static;
-    transform: none;
-    height: initial;
+  .tg-action-sheet .van-actionsheet .van-actionsheet__item--disabled {
+    color: #C4C9D9;
   }
-  .tg-action-sheet .cube-popup-content {
-    position: static;
-    transform: none;
+  .tg-action-sheet .van-actionsheet .van-actionsheet__item.left {
+    text-align: left;
+    padding: 0 16px;
   }
-  .tg-action-sheet .cube-popup-mask {
-    display: none!important;
-  }
-  .tg-action-sheet .cube-action-sheet-cancel span, .tg-action-sheet .cube-action-sheet-item, .tg-action-sheet .cube-action-sheet-title {
-    font-size: 14px;
-    color: #43454F;
-    padding: 18px 17px;
-  }
-  .tg-action-sheet .cube-action-sheet-item.cube-action-sheet-item_active {
-    color: #EE3F15;
-  }
-  .tg-action-sheet .cube-action-sheet-item:after, .tg-action-sheet .cube-action-sheet-title:after {
-    content: "";
-    display: block;
-    position: absolute;
-    border-bottom: 1px solid #EDF2FB;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    -webkit-transform-origin: 0 bottom;
-    transform-origin: 0 bottom;
-  } 
-  .tg-action-sheet .border-bottom-1px {
-    position: relative;
-  }
-  .tg-action-sheet .cube-action-sheet-content {
-    max-height: 300px;
-    overflow-y: auto;
-  }
-  .tg-action-sheet .cube-action-sheet-space {
-    height: 5px;
-    background-color: rgba(19,21,45,0.50);
+  .tg-action-sheet .van-actionsheet .van-actionsheet__item.right {
+    text-align: right;
+    padding: 0 16px;
   }
 </style>
